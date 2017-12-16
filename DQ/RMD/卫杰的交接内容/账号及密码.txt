@@ -1,0 +1,8 @@
+Web 测试账号 weijie 密码123
+tfs账号101T0011  密码 Hi8e8eu
+10.0.43.31 账号 root 密码 rmd123
+10.0.43.34 账号 DC01-RMD-03\Administratrr Admin123
+10.0.43.31 ftp账号 主要用来中转传job文件 
+目录 /rmds/ftp
+访问路径 ftp://10.0.43.31/ 账号 vsftp 密码 vsftp
+

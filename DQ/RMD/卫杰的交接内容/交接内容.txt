@@ -1,0 +1,63 @@
+2、趋势图模块
+
+趋势图主要前端文件，趋势所有前端功能都在这里面，大部分参数和方法有注释
+rmds-web\src\main\webapp\assets\js\tendency.js
+后端和其它模块文件目录一样
+controller service dao
+
+3、Job 服务器
+根据刘小龙上周的修改的建议，已经把所有使用groupdispatch全部换成了通过点标志获取点id的方法。
+目前主要问题在高并发取大量点的实时值情况下仍然会导致服务崩溃，原因可能是32位jdk1.7内存限制导致调用的dll中方法产生内存分配不足。
+建议后续改成以web做客户端，实时数据库做服务端的rpc通信接口或其它tcp通信接口。
+P.S 目前由于服务不稳定，外加了autostart_service.bat监控RMDS服务，服务停了会自动重启。
+文件位于06-Document\卫杰的交接内容\autostart_service.bat
+
+主要文件路径
+job的controller层
+rmds-job\src\main\java\com\infosys\rmds\controller\PhdController.java 
+job的service层
+rmds-job\src\main\java\com\infosys\rmds\service\RealtimeService.java
+
+链接池服务类
+rmds-job\src\main\java\com\infosys\rmds\service\RealtimeConnectionService.java
+初始化链接服务类
+rmds-job\src\main\java\com\infosys\rmds\service\InitRealtimeDBDataService.java
+创建链接线程类
+rmds-job\src\main\java\com\infosys\rmds\service\CreateDBConnectionsThread.java
+链接实体类
+rmds-job\src\main\java\com\infosys\rmds\service\bo\RealtimeConnection.java
+
+3、webservice
+Webservice主要用了Axis2的框架，这边主要是做客户端，
+分为KOA和accountservice两个服务：
+KOA通过用户的工号获取员工的内部信息自动填充新建用户信息。
+文件位于 rmds-web\src\main\java\com\infosys\rmds\webservice\userservice\client\KOAUserService.java
+Accountservice主要通过页面的token获取员工的工号来做单点登录。
+文件位于 rmds-web\src\main\java\com\infosys\rmds\webservice\accountservice\client\AccountService.java
+
+服务地址、用户名、密码都在config.properties中
+
+4、注册机
+Tfs目录下的rmds-register，注册机操作方法及配置见06-Document\系统安装及配置手册.docx  的3.1.4 
+
+5、极光推送
+App端主要用了jpush作为极光推送的服务器。https://www.jiguang.cn，
+贾龙那边有账号。
+通过包名生成以下两个key，配置在service服务器中的config. properties中
+jpush.appkey=d637c1a1475496811297e7eb
+jpush.masterSecret=47cee4e915021b03dc51ed9d
+证书的生成和下载都和贾龙说过了。
+
+通过API发送消息类
+rmds-service\src\main\java\com\infosys\rmds\service\JpushService.java
+服务端集成方法
+https://docs.jiguang.cn/jpush/server/sdk/java_sdk
+
+
+6、其它模块
+web
+统计报表、数据导入导出
+案例库诊断、案例库诊断结果、规则库诊断、规则库诊断结果
+编码管理、信息反馈、数据库配置、用户行为分析
+app
+电厂信息、常用趋势、故障上传、扫一扫

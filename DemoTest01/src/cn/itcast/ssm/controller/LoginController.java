@@ -67,7 +67,7 @@ public class LoginController {
 		return null;
 	}
 
-	@RequestMapping("/toFunctionList")
+	@RequestMapping("/FunctionList")
 	public String toFunctionList() {
 		
 		return "/FunctionList/FunctionList";
