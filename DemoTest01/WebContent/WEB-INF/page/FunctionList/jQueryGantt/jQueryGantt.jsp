@@ -16,7 +16,7 @@
   <link rel=stylesheet href="${ctx}/jQueryGantt/gantt.css" type="text/css">
   <link rel=stylesheet href="${ctx}/jQueryGantt/ganttPrint.css" type="text/css" media="print">
 
-  <script src="${ctx}/jQueryGantt/jquery-3.1.1.min"></script>
+  <script src="${ctx}/jQueryGantt/jquery.min.js"></script>
   <script src="${ctx}/jQueryGantt/jquery-ui.min.js"></script>
   
  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -46,9 +46,10 @@
 </head>
 <body style="background-color: #fff;">
 
-
+ ${task.id}
 <div id="ndo" style="position:absolute;right:5px;top:5px;width:378px;padding:5px;background-color: #FFF5E6; border:1px solid #F9A22F; font-size:12px" class="noprint">
-  This Gantt editor is free thanks to <a href="http://twproject.com" target="_blank">Twproject</a> where it can be used on a complete and flexible project management solution.<br> Get your projects done! Give <a href="http://twproject.com" target="_blank">Twproject a try now</a>.
+  <!-- This Gantt editor is free thanks to <a href="http://twproject.com" target="_blank">Twproject</a> where it can be used on a complete and flexible project management solution.<br> Get your projects done! Give <a href="http://twproject.com" target="_blank">Twproject a try now</a>. -->
+
 </div>
 <div id="workSpace" style="padding:0px; overflow-y:auto; overflow-x:hidden;border:1px solid #e5e5e5;position:relative;margin:0 5px"></div>
 
@@ -82,7 +83,7 @@
 <script type="text/javascript">
 
 
-var ge;
+var  ge;
 $(function() {
   var canWrite=true; //this is the default for test purposes
 
@@ -94,9 +95,10 @@ $(function() {
   loadI18n(); //overwrite with localized ones
 
   //in order to force compute the best-fitting zoom level
+  //为了强制计算最佳拟合缩放级别
   delete ge.gantt.zoom;
 
-
+  //加载本地存储
   var project=loadFromLocalStorage();
 
 
@@ -215,7 +217,11 @@ function setRoles() {
     {
       id:"tmp_4",
       name:"Customer"
-    }
+    },
+    {
+        id:"tmp_5",
+        name:"xu"
+      }
   ];
 }
 
@@ -280,9 +286,22 @@ function loadFromLocalStorage() {
     }
   }
 
+ // var data = new Object(); var json_data = JSON.stringify(data);
   //if not found create a new example task
   if (!ret || !ret.tasks || ret.tasks.length == 0){
-    ret= {"tasks":    [
+	  var JSONStr1 ={"id": 2, "name": "Gantt editor2"};
+	  /* alert(JSONStr1);
+	  var jsObj4 = JSON.stringify(JSONStr1);
+	  alert(jsObj4); */
+	 
+    ret= {"tasks": 
+    	
+    	      [{"id": 1, "name": "Gantt editor", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 0, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 20, "end": 1399586399999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": true},
+    	       JSONStr1,
+    	       {"id": 3, "name": "3333333333333333"}
+    	       ] 
+    	    
+    		/* [
       {"id": -1, "name": "Gantt editor", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 0, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 20, "end": 1399586399999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": true},
       {"id": -2, "name": "coding", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 1, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 10, "end": 1398203999999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": true},
       {"id": -3, "name": "gantt part", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 2, "end": 1397167199999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false},
@@ -290,20 +309,32 @@ function loadFromLocalStorage() {
       {"id": -5, "name": "testing", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 1, "status": "STATUS_SUSPENDED", "depends": "2:5", "canWrite": true, "start": 1398981600000, "duration": 5, "end": 1399586399999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": true},
       {"id": -6, "name": "test on safari", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_SUSPENDED", "depends": "", "canWrite": true, "start": 1398981600000, "duration": 2, "end": 1399327199999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false},
       {"id": -7, "name": "test on ie", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_SUSPENDED", "depends": "6", "canWrite": true, "start": 1399327200000, "duration": 3, "end": 1399586399999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false},
-      {"id": -8, "name": "test on chrome", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_SUSPENDED", "depends": "6", "canWrite": true, "start": 1399327200000, "duration": 2, "end": 1399499999999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false}
-    ], "selectedRow": 2, "deletedTaskIds": [],
-      "resources": [
+      {"id": 8, "name": "test on chrome", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_SUSPENDED", "depends": "6", "canWrite": true, "start": 1399327200000, "duration": 2, "end": 1399499999999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false},
+      {"id": 9,	"code": "123", "name": "test on chrome", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "",  "level": 2, "status": "STATUS_SUSPENDED", "depends": "6", "canWrite": true, "start": 1399327200000, "duration": 2, "end": 1399499999999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false},
+      {"id": "${task.id}", "name": "${task}", "progress": 0, "progressByWorklog": true, "relevance": 0}
+      
+    ] */, 
+    "selectedRow": 0,
+    "deletedTaskIds": [],
+      "resources": [//添加项目成员
       {"id": "tmp_1", "name": "Resource 1"},
       {"id": "tmp_2", "name": "Resource 2"},
       {"id": "tmp_3", "name": "Resource 3"},
-      {"id": "tmp_4", "name": "Resource 4"}
-    ],
+      {"id": "tmp_4", "name": "Resource 4"},
+       {"id": "tmp_5", "name": "5"}
+    ], 
       "roles":       [
       {"id": "tmp_1", "name": "Project Manager"},
       {"id": "tmp_2", "name": "Worker"},
       {"id": "tmp_3", "name": "Stakeholder"},
-      {"id": "tmp_4", "name": "Customer"}
-    ], "canWrite":    true, "canDelete":true, "canWriteOnParent": true, "zoom": "w3"}
+      {"id": "tmp_4", "name": "Customer"},
+      {"id": "tmp_5", "name": "kai"}
+    ], 
+    "canWrite":    true,
+    "canDelete":true, 
+    "canWriteOnParent": true, 
+    "zoom": "w3"
+    }
 
 
     //actualize data
@@ -396,10 +427,10 @@ function editResources(){
 
 
 <div id="gantEditorTemplates" style="display:none;">
-<div class="__template__" type="GANTBUTTONS"><!--
+<div class="__template__" type="GANTBUTTONS">
   <div class="ganttButtonBar noprint">
     <div class="buttons">
-      <a href="https://gantt.twproject.com/"><img src="res/twGanttLogo.png" alt="Twproject" align="absmiddle" style="max-width: 136px; padding-right: 15px"></a>
+      <a href="https://gantt.twproject.com/"><img src="${ctx}/jQueryGantt/res/twGanttLogo.png" alt="Twproject" align="absmiddle" style="max-width: 136px; padding-right: 15px"></a>
 
       <button onclick="$('#workSpace').trigger('undo.gantt');return false;" class="button textual icon requireCanWrite" title="undo"><span class="teamworkIcon">&#39;</span></button>
       <button onclick="$('#workSpace').trigger('redo.gantt');return false;" class="button textual icon requireCanWrite" title="redo"><span class="teamworkIcon">&middot;</span></button>
@@ -440,7 +471,7 @@ function editResources(){
     <button class="button login" title="login/enroll" onclick="loginEnroll($(this));" style="display:none;">login/enroll</button>
     <button class="button opt collab" title="Start with Twproject" onclick="collaborate($(this));" style="display:none;"><em>collaborate</em></button>
     </div></div>
-  --></div>
+  </div>
 
 <div class="__template__" type="TASKSEDITHEAD"><!--
   <table class="gdfTable" cellspacing="0" cellpadding="0">

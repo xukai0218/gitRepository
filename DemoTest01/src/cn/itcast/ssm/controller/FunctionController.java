@@ -13,6 +13,9 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import cn.gantt.model.Tasks;
 
 @Controller
 @RequestMapping(value = "/FunctionList")
@@ -82,9 +85,27 @@ public class FunctionController {
 	}
 	
 	@RequestMapping("/jQueryGantt")
-	public String tojQueryGantt() {
+	public ModelAndView tojQueryGantt() {
+		Tasks task = new Tasks(1,"Test1");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("task", task);
+		modelAndView.setViewName("/FunctionList/jQueryGantt/jQueryGantt");
+		
+		//return "/FunctionList/jQueryGantt/jQueryGantt";
+		return modelAndView;
 
-		return "/FunctionList/jQueryGantt/jQueryGantt";
+	}
+	@RequestMapping("/jQueryGanttTest")
+	public Tasks tojQueryGanttTest(HttpServletRequest request) {
+		String type=request.getParameter("id");
+		System.out.println(type);
+		Tasks task = new Tasks(1,"Test1");
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("task", task);
+		modelAndView.setViewName("/FunctionList/jQueryGantt/jQueryGantt");
+		
+		//return "/FunctionList/jQueryGantt/jQueryGantt";
+		return task;
 
 	}
 }

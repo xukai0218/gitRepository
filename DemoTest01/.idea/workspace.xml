@@ -14,43 +14,140 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/login.jsp">
+      <file leaf-file-name="jQueryGantt.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/jQueryGantt/jQueryGantt.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FunctionList.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/FunctionList.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+            <state relative-caret-position="92">
+              <caret line="286" column="5" lean-forward="false" selection-start-line="286" selection-start-column="5" selection-end-line="286" selection-end-column="5" />
               <folding>
-                <marker date="1513220299525" expanded="true" signature="847:862" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="12854:12868" ph="{&quot;zoom&quot;: &quot;w3&quot;...}" />
+                <marker date="1513845291701" expanded="true" signature="12854:13056" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="12854:13072" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="12854:15198" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="13105:13217" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="13157:13215" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="13468:15189" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="13663:13762" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="14014:15120" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="14105:14755" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="14220:14393" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="14399:14749" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="14473:14741" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="14848:15047" ph="{...}" />
+                <marker date="1513845291701" expanded="false" signature="15242:15255" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="15256:31264" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="15302:20562" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="15341:20553" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="15367:20547" ph="..." />
+                <marker date="1513845291701" expanded="false" signature="15505:15542" ph="..." />
+                <marker date="1513845291701" expanded="false" signature="15710:15715" ph="'" />
+                <marker date="1513845291701" expanded="false" signature="15892:15900" ph="·" />
+                <marker date="1513845291701" expanded="false" signature="17715:17721" ph="¢" />
+                <marker date="1513845291701" expanded="false" signature="18966:18973" ph="£" />
+                <marker date="1513845291701" expanded="false" signature="19841:19847" ph="§" />
+                <marker date="1513845291701" expanded="false" signature="20014:20020" ph=" " />
+                <marker date="1513845291701" expanded="false" signature="20021:20027" ph=" " />
+                <marker date="1513845291701" expanded="false" signature="20028:20034" ph=" " />
+                <marker date="1513845291701" expanded="false" signature="20035:20041" ph=" " />
+                <marker date="1513845291701" expanded="false" signature="20350:20363" ph="..." />
+                <marker date="1513845291701" expanded="false" signature="20493:20506" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="20611:21891" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="20616:21883" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="21934:23650" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="21939:23642" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="23698:24172" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="23703:24164" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="24215:24779" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="24220:24771" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="24829:25351" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="24834:25343" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="25402:29783" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="25407:29775" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="29835:30380" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="29840:30372" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="30433:30930" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="30438:30922" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="30980:31255" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="30985:31247" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="31296:34518" ph="..." />
+                <marker date="1513845291701" expanded="true" signature="31510:32498" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="31678:31912" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="32020:32259" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="32524:33904" ph="{...}" />
+                <marker date="1513845291701" expanded="true" signature="32553:33899" ph="{&quot;CANNOT_WRITE&quot;: &quot;No permission to change the following task:&quot;...}" />
+                <marker date="1513845291701" expanded="true" signature="33941:34509" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yellowPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/yellow/yellowPage.jsp">
+      <file leaf-file-name="dialogs.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/dialogs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="7020">
+              <caret line="371" column="9" lean-forward="false" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
+              <folding>
+                <marker date="1513320462565" expanded="true" signature="7830:7863" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ganttTask.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/ganttTask.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21080">
+              <caret line="1075" column="9" lean-forward="false" selection-start-line="1075" selection-start-column="9" selection-end-line="1075" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/index.jsp">
+      <file leaf-file-name="EcmaScript.js" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6994">
-              <caret line="497" column="41" lean-forward="true" selection-start-line="497" selection-start-column="41" selection-end-line="497" selection-end-column="41" />
+            <state relative-caret-position="2640">
+              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HTML5.js" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27040">
+              <caret line="1352" column="0" lean-forward="false" selection-start-line="1352" selection-start-column="0" selection-end-line="1352" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utilities.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/utilities.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7680">
+              <caret line="404" column="0" lean-forward="false" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.JST.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/jquery/JST/jquery.JST.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2260">
+              <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="14" selection-end-line="113" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ganttMaster.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/ganttMaster.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10560">
+              <caret line="549" column="23" lean-forward="false" selection-start-line="549" selection-start-column="18" selection-end-line="549" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -61,6 +158,20 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Default Dashboard</find>
+      <find>editResources()</find>
+      <find>getFile</find>
+      <find>gimBaPrj</find>
+      <find>resourceEditor</find>
+      <find>__template__</find>
+      <find>resourcesTable</find>
+      <find>edit resource</find>
+      <find>resSaveButton</find>
+      <find>edit</find>
+      <find>editResources</find>
+      <find>resId</find>
+      <find>RESOURCE_EDITOR</find>
+      <find>ganttButtonBar</find>
+      <find>loadFromLocalStorage</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -70,8 +181,11 @@
         <option value="$PROJECT_DIR$/WebContent/login.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/FunctionList.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/yellow/yellowPage.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/page/index.jsp" />
         <option value="$PROJECT_DIR$/src/cn/itcast/ssm/controller/converter/CustomDateConverter.java" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/page/index.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/jQueryGantt/jQueryGantt.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/jQueryGantt/libs/jquery/JST/jquery.JST.js" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/jQueryGantt/jQueryGantt.jsp" />
       </list>
     </option>
   </component>
@@ -81,11 +195,26 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-94" />
-    <option name="y" value="117" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="24" />
     <option name="width" value="1346" />
     <option name="height" value="698" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AngularJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -102,8 +231,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -114,12 +243,13 @@
             <path>
               <item name="DemoTest01" type="b2602c69:ProjectViewProjectNode" />
               <item name="DemoTest01" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DemoTest01" type="b2602c69:ProjectViewProjectNode" />
               <item name="DemoTest01" type="462c0819:PsiDirectoryNode" />
               <item name="WebContent" type="462c0819:PsiDirectoryNode" />
+              <item name="jQueryGantt" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DemoTest01" type="b2602c69:ProjectViewProjectNode" />
@@ -134,6 +264,23 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DemoTest01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DemoTest01" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="FunctionList" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DemoTest01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DemoTest01" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="FunctionList" type="462c0819:PsiDirectoryNode" />
+              <item name="jQueryGantt" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -142,10 +289,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/CompleteCode/jQueryGantt" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TestWorkSpace\gitRepository\DemoTest01\WebContent\WEB-INF\page\FunctionList\jQueryGantt" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\TestWorkSpace\gitRepository\DemoTest01\WebContent\jQueryGantt" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -169,6 +324,10 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+    <option name="myConnectionType" value="NONE" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7347939f-070b-440c-b125-812503fd1061" name="Default" comment="" />
@@ -181,16 +340,20 @@
       <workItem from="1513164912776" duration="3176000" />
       <workItem from="1513222366293" duration="1019000" />
       <workItem from="1513228561463" duration="641000" />
+      <workItem from="1513576920845" duration="41000" />
+      <workItem from="1513664500010" duration="10218000" />
+      <workItem from="1513834351342" duration="3360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12200000" />
+    <option name="totallyTimeSpent" value="25819000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="0" y="24" width="1346" height="698" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18374817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10977443" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -221,6 +384,162 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/jQueryGantt/jQueryGantt.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1513845291701" expanded="true" signature="12854:12868" ph="{&quot;zoom&quot;: &quot;w3&quot;...}" />
+            <marker date="1513845291701" expanded="true" signature="12854:13056" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="12854:13072" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="12854:15198" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="13105:13217" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="13157:13215" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="13468:15189" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="13663:13762" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14014:15120" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14105:14755" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14220:14393" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14399:14749" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14473:14741" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14848:15047" ph="{...}" />
+            <marker date="1513845291701" expanded="false" signature="15242:15255" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15256:31264" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15302:20562" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15341:20553" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15367:20547" ph="..." />
+            <marker date="1513845291701" expanded="false" signature="15505:15542" ph="..." />
+            <marker date="1513845291701" expanded="false" signature="15710:15715" ph="'" />
+            <marker date="1513845291701" expanded="false" signature="15892:15900" ph="·" />
+            <marker date="1513845291701" expanded="false" signature="17715:17721" ph="¢" />
+            <marker date="1513845291701" expanded="false" signature="18966:18973" ph="£" />
+            <marker date="1513845291701" expanded="false" signature="19841:19847" ph="§" />
+            <marker date="1513845291701" expanded="false" signature="20014:20020" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20021:20027" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20028:20034" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20035:20041" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20350:20363" ph="..." />
+            <marker date="1513845291701" expanded="false" signature="20493:20506" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="20611:21891" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="20616:21883" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="21934:23650" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="21939:23642" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="23698:24172" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="23703:24164" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24215:24779" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24220:24771" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24829:25351" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24834:25343" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="25402:29783" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="25407:29775" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="29835:30380" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="29840:30372" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30433:30930" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30438:30922" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30980:31255" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30985:31247" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="31296:34518" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="31510:32498" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="31678:31912" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="32020:32259" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="32524:33904" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="32553:33899" ph="{&quot;CANNOT_WRITE&quot;: &quot;No permission to change the following task:&quot;...}" />
+            <marker date="1513845291701" expanded="true" signature="33941:34509" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/dialogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7420">
+          <caret line="371" column="9" lean-forward="false" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
+          <folding>
+            <marker date="1513320462565" expanded="true" signature="7830:7863" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/ganttTask.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21500">
+          <caret line="1075" column="9" lean-forward="false" selection-start-line="1075" selection-start-column="9" selection-end-line="1075" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27040">
+          <caret line="1352" column="0" lean-forward="false" selection-start-line="1352" selection-start-column="0" selection-end-line="1352" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8080">
+          <caret line="404" column="0" lean-forward="false" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/jquery/JST/jquery.JST.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2260">
+          <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="14" selection-end-line="113" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/ganttMaster.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10980">
+          <caret line="549" column="23" lean-forward="false" selection-start-line="549" selection-start-column="18" selection-end-line="549" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/FunctionList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <marker date="1513321246345" expanded="true" signature="920:935" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/yellow/yellowPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9940">
+          <caret line="497" column="41" lean-forward="true" selection-start-line="497" selection-start-column="41" selection-end-line="497" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -234,7 +553,7 @@
         <state relative-caret-position="300">
           <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
-            <marker date="1513220299525" expanded="true" signature="847:862" ph="..." />
+            <marker date="1513321246345" expanded="true" signature="920:935" ph="..." />
           </folding>
         </state>
       </provider>
@@ -243,7 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -268,7 +586,7 @@
         <state relative-caret-position="300">
           <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
-            <marker date="1513220299525" expanded="true" signature="847:862" ph="..." />
+            <marker date="1513321246345" expanded="true" signature="920:935" ph="..." />
           </folding>
         </state>
       </provider>
@@ -277,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -299,9 +616,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/assets/js/scripts.js" />
     <entry file="file://$PROJECT_DIR$/WebContent/FunctionList.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/cn/itcast/ssm/controller/converter/CustomDateConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="300">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
@@ -312,7 +636,7 @@
         <state relative-caret-position="300">
           <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
-            <marker date="1513220299525" expanded="true" signature="847:862" ph="..." />
+            <marker date="1513321246345" expanded="true" signature="920:935" ph="..." />
           </folding>
         </state>
       </provider>
@@ -321,23 +645,153 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/itcast/ssm/controller/converter/CustomDateConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6994">
-          <caret line="497" column="41" lean-forward="true" selection-start-line="497" selection-start-column="41" selection-end-line="497" selection-end-column="41" />
+        <state relative-caret-position="575">
+          <caret line="81" column="10" lean-forward="false" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/jquery/jquery.livequery.1.1.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="408" lean-forward="false" selection-start-line="1" selection-start-column="408" selection-end-line="1" selection-end-column="408" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/metronic/assets/global/plugins/ckeditor/plugins/templates/dialogs/templates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="8" column="184" lean-forward="false" selection-start-line="8" selection-start-column="184" selection-end-line="8" selection-end-column="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/jQueryGantt.jsp" />
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7680">
+          <caret line="404" column="0" lean-forward="false" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27040">
+          <caret line="1352" column="0" lean-forward="false" selection-start-line="1352" selection-start-column="0" selection-end-line="1352" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/gantt.html" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/ganttMaster.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10560">
+          <caret line="549" column="23" lean-forward="false" selection-start-line="549" selection-start-column="18" selection-end-line="549" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/jquery/JST/jquery.JST.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2260">
+          <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="14" selection-end-line="113" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/ganttTask.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21080">
+          <caret line="1075" column="9" lean-forward="false" selection-start-line="1075" selection-start-column="9" selection-end-line="1075" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/jQueryGantt/libs/dialogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7020">
+          <caret line="371" column="9" lean-forward="false" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
+          <folding>
+            <marker date="1513320462565" expanded="true" signature="7830:7863" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/page/FunctionList/jQueryGantt/jQueryGantt.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="286" column="5" lean-forward="false" selection-start-line="286" selection-start-column="5" selection-end-line="286" selection-end-column="5" />
+          <folding>
+            <marker date="1513845291701" expanded="true" signature="12854:12868" ph="{&quot;zoom&quot;: &quot;w3&quot;...}" />
+            <marker date="1513845291701" expanded="true" signature="12854:13056" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="12854:13072" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="12854:15198" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="13105:13217" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="13157:13215" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="13468:15189" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="13663:13762" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14014:15120" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14105:14755" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14220:14393" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14399:14749" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14473:14741" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="14848:15047" ph="{...}" />
+            <marker date="1513845291701" expanded="false" signature="15242:15255" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15256:31264" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15302:20562" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15341:20553" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="15367:20547" ph="..." />
+            <marker date="1513845291701" expanded="false" signature="15505:15542" ph="..." />
+            <marker date="1513845291701" expanded="false" signature="15710:15715" ph="'" />
+            <marker date="1513845291701" expanded="false" signature="15892:15900" ph="·" />
+            <marker date="1513845291701" expanded="false" signature="17715:17721" ph="¢" />
+            <marker date="1513845291701" expanded="false" signature="18966:18973" ph="£" />
+            <marker date="1513845291701" expanded="false" signature="19841:19847" ph="§" />
+            <marker date="1513845291701" expanded="false" signature="20014:20020" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20021:20027" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20028:20034" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20035:20041" ph=" " />
+            <marker date="1513845291701" expanded="false" signature="20350:20363" ph="..." />
+            <marker date="1513845291701" expanded="false" signature="20493:20506" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="20611:21891" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="20616:21883" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="21934:23650" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="21939:23642" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="23698:24172" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="23703:24164" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24215:24779" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24220:24771" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24829:25351" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="24834:25343" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="25402:29783" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="25407:29775" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="29835:30380" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="29840:30372" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30433:30930" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30438:30922" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30980:31255" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="30985:31247" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="31296:34518" ph="..." />
+            <marker date="1513845291701" expanded="true" signature="31510:32498" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="31678:31912" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="32020:32259" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="32524:33904" ph="{...}" />
+            <marker date="1513845291701" expanded="true" signature="32553:33899" ph="{&quot;CANNOT_WRITE&quot;: &quot;No permission to change the following task:&quot;...}" />
+            <marker date="1513845291701" expanded="true" signature="33941:34509" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
