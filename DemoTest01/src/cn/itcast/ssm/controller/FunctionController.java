@@ -13,6 +13,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.gantt.model.Tasks;
@@ -96,13 +97,13 @@ public class FunctionController {
 
 	}
 	@RequestMapping("/jQueryGanttTest")
-	public Tasks tojQueryGanttTest(HttpServletRequest request) {
-		String type=request.getParameter("id");
-		System.out.println(type);
-		Tasks task = new Tasks(1,"Test1");
+	@ResponseBody
+	public Tasks tojQueryGanttTest() {
+		
+		Tasks task = new Tasks(4,"Test444");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("task", task);
-		modelAndView.setViewName("/FunctionList/jQueryGantt/jQueryGantt");
+		//modelAndView.setViewName("/FunctionList/jQueryGantt/jQueryGantt");
 		
 		//return "/FunctionList/jQueryGantt/jQueryGantt";
 		return task;

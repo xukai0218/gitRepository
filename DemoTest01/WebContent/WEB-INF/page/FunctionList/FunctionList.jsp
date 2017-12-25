@@ -25,7 +25,10 @@
 			<a href="FunctionList/MetronicIndex.do"><p>Metronic</p></a>
 		</li>
 		<li>
-			<a href="FunctionList/jQueryGantt.do"><p>JQueryGantt</p></a>
+			<a href="FunctionList/jQueryGantt.do"><p>JQueryGantt.jsp</p></a>
+		</li>
+		<li>
+			<a href="jQueryGantt/gantt.html"><p>JQueryGantt.html</p></a>
 		</li>
 	</ul>
 
