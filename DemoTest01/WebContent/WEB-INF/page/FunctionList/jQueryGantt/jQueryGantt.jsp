@@ -310,7 +310,7 @@ function loadFromLocalStorage() {
 		  test=data;
 		  var test4 = JSON.stringify(data);
 		  var jsObj4 =data;
-		 // alert("jsObj4"+jsObj4);
+		  alert("jsObj4"+jsObj4);
 		 // alert("test4"+test4);
 	  },
 	  error : function(data) {
