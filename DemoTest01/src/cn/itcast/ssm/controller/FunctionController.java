@@ -3,7 +3,10 @@ package cn.itcast.ssm.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -98,15 +101,20 @@ public class FunctionController {
 	}
 	@RequestMapping("/jQueryGanttTest")
 	@ResponseBody
-	public Tasks tojQueryGanttTest() {
-		
-		Tasks task = new Tasks(4,"Test444");
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("task", task);
+	public List tojQueryGanttTest() {
+		long time = new Date().getTime();
+		//long time =System.currentTimeMillis();
+		//Tasks task4 = new Tasks(1,"Test444",time,time,1);//1514211611827
+		Tasks task5 = new Tasks(2,"Test555");
+		List lists = new ArrayList<>();
+		//lists.add(task4);
+		lists.add(task5);
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.addObject("task", task);
 		//modelAndView.setViewName("/FunctionList/jQueryGantt/jQueryGantt");
 		
 		//return "/FunctionList/jQueryGantt/jQueryGantt";
-		return task;
+		return lists;
 
 	}
 }

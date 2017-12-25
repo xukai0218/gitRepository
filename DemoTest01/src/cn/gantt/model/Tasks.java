@@ -1,12 +1,13 @@
 package cn.gantt.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Tasks {
 	private int id;
 	private String name;
-	private long start;
-	private int end;
+	private Timestamp start;
+	private long end;
 	private int duration;
 	
 	
@@ -46,13 +47,13 @@ public class Tasks {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getStart() {
+	public Timestamp getStart() {
 		return start;
 	}
-	public void setStart(int start) {
+	public void setStart(Timestamp start) {
 		this.start = start;
 	}
-	public int getEnd() {
+	public long getEnd() {
 		return end;
 	}
 	public void setEnd(int end) {
@@ -64,11 +65,19 @@ public class Tasks {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public Tasks(int id, String name, long start, int duration) {
+	public Tasks(int id, String name, Timestamp start, int duration) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.start = start;
+		this.duration = duration;
+	}
+	public Tasks(int id, String name, Timestamp start, long end, int duration) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.start = start;
+		this.end = end;
 		this.duration = duration;
 	}
 	
