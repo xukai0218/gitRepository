@@ -1,14 +1,65 @@
 package cn.gantt.model;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-
-public class Tasks {
+public class Tasks {//id, name, code, level, start, duration, collapsed
 	private int id;
 	private String name;
-	private Timestamp start;
-	private long end;
+	private String code;
+	private int level;
+	private long start;
 	private int duration;
+	private long end;
+	public Tasks(int id, String name, String code, int level, long start, int duration, long end) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.code = code;
+		this.level = level;
+		this.start = start;
+		this.duration = duration;
+		this.end = end;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public long getStart() {
+		return start;
+	}
+	public void setStart(long start) {
+		this.start = start;
+	}
+	public int getDuration() {
+		return duration;
+	}
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+	public long getEnd() {
+		return end;
+	}
+	public void setEnd(long end) {
+		this.end = end;
+	}
 	
 	
 /*	private int progress;
@@ -30,56 +81,6 @@ public class Tasks {
 	private boolean assigs;
 	private boolean hasChild;*/
 	
-	public int getId() {
-		return id;
-	}
-	public Tasks(int id, String name) {
-	super();
-	this.id = id;
-	this.name = name;
-}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Timestamp getStart() {
-		return start;
-	}
-	public void setStart(Timestamp start) {
-		this.start = start;
-	}
-	public long getEnd() {
-		return end;
-	}
-	public void setEnd(int end) {
-		this.end = end;
-	}
-	public int getDuration() {
-		return duration;
-	}
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
-	public Tasks(int id, String name, Timestamp start, int duration) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.start = start;
-		this.duration = duration;
-	}
-	public Tasks(int id, String name, Timestamp start, long end, int duration) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.start = start;
-		this.end = end;
-		this.duration = duration;
-	}
 	
 	
 }

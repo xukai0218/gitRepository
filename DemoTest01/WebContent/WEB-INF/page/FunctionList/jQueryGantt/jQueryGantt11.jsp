@@ -1,4 +1,3 @@
- GanttMaster甘特图的扩展使用 blog.csdn.net 2016年03月18日 10:04
 <%@ Page Language="C#" AutoEventWireup="true"
 	CodeBehind="GANT_MST.aspx.cs"
 	Inherits="WebApp.XMKApp.ZDCB._15_GCJD.GANT_MST"%>
