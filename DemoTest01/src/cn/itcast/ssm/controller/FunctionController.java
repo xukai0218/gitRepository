@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,20 +13,38 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.springframework.scheduling.config.Task;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import cn.gantt.model.Resources;
+
 import cn.gantt.model.Ret;
-import cn.gantt.model.Roles;
 import cn.gantt.model.Tasks;
+import cn.itcast.ssm.po.Resources;
+import cn.itcast.ssm.po.Roles;
+import cn.itcast.ssm.service.ResourcesService;
+import cn.itcast.ssm.service.RolesService;
 
+
+/**
+* @ClassName: FunctionController
+* @Description:
+* @author kai.xu
+* @date 2017年12月27日
+*
+*/
 @Controller
 @RequestMapping(value = "/FunctionList")
 public class FunctionController {
+	@Autowired
+	private ResourcesService resourcesService;
+	
+	@Autowired
+	private RolesService rolesService;
+	
 	@RequestMapping("/yellow")
 	public String toYellowPage() {
 
@@ -92,75 +109,72 @@ public class FunctionController {
 
 	}
 
-	@RequestMapping("/jQueryGantt")
-	public ModelAndView tojQueryGantt() {
-		// Tasks task = new Tasks(1,"Test1");
-		ModelAndView modelAndView = new ModelAndView();
-		// modelAndView.addObject("task", task);
-		// modelAndView.setViewName("/FunctionList/jQueryGantt/jQueryGantt");
-
-		// return "/FunctionList/jQueryGantt/jQueryGantt";
-		return modelAndView;
-
-	}
-
-	@RequestMapping("/jQueryGanttTest")
+	@RequestMapping("/jQueryGanttTestAll")
 	@ResponseBody
-	public List tojQueryGanttTest() {
-		// {"id": -1, "name": "Gantt editor", "progress": 0,
-		// "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "",
-		// "description": "", "code": "", "level": 0, "status": "STATUS_ACTIVE",
-		// "depends": "", "canWrite": true, "start": 1396994400000, "duration":
-		// 20, "end": 1399586399999, "startIsMilestone": false,
-		// "endIsMilestone": false, "collapsed": false, "assigs": [],
-		// "hasChild": true},
-		long time = System.currentTimeMillis();
-
-		Tasks task1 = new Tasks(1, "task1", "1", 0, System.currentTimeMillis(), 1, System.currentTimeMillis());
-		Tasks task2 = new Tasks(2, "task2", "2", 1, System.currentTimeMillis(), 2, System.currentTimeMillis());
-		Tasks task3 = new Tasks(3, "task3", "3", 2, System.currentTimeMillis(), 3, System.currentTimeMillis());
+	public Ret tojQueryGanttTestAll() {
+	long currentTime = System.currentTimeMillis();
+		Tasks task1 = new Tasks(1, "task1", "1", 0, currentTime, 1, currentTime,"STATUS_ACTIVE");
+		Tasks task2 = new Tasks(2, "task2", "2", 1, addDay(currentTime,1), 2,currentTime,"STATUS_DONE");
+		Tasks task3 = new Tasks(3, "task3", "3", 2, currentTime, 3, currentTime,"STATUS_SUSPENDED");
+		Tasks task4 = new Tasks(4, "task3", "4", 4, currentTime, 4,currentTime,"STATUS_UNDEFINED");
 		List<Tasks> tasks = new ArrayList<>();
 		tasks.add(task1);
 		tasks.add(task2);
 		tasks.add(task3);
-		List<Resources> resources = new ArrayList<>();
-		Resources resources1 = new Resources("1", "Resource 1");
-		Resources resources2 = new Resources("2", "Resource 2");
-		Resources resources3 = new Resources("3", "Resource 3");
-		resources.add(resources1);
-		resources.add(resources2);
-		resources.add(resources3);
+		tasks.add(task4);
+		List<Resources> resources = null;
+		try {
+			resources = resourcesService.selectAllResources();
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
 		List<Roles> roles = new ArrayList<>();
-		Roles roles1 = new Roles("1", "Project Manager");
-		Roles roles2 = new Roles("2", "Worker");
-		Roles roles3 = new Roles("3", "Stakeholder");
-		Roles roles4 = new Roles("4", "Customer");
-		roles.add(roles1);
-		roles.add(roles2);
-		roles.add(roles3);
-		roles.add(roles4);
 		
-		Ret ret = new Ret(tasks,resources,roles,true,true,true,"w3");
+		try {
+			roles = rolesService.selectAllRoles();
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+
 		
-		/*Ret ret = new Ret();
-		ret.setTasks(tasks);
-		ret.setResources(resources);*/
+		List<String> deletedTaskIds = new ArrayList<>();
+		Ret ret = new Ret(tasks,resources,roles,1,deletedTaskIds,true,true,true,"w3");
 		
-		return tasks;
+		return ret;
 
 	}
-	@RequestMapping("/jQueryGanttTestResources")
-	@ResponseBody
-	public List tojQueryGanttTestResources() {
-		List<Resources> resources = new ArrayList<>();
+	@RequestMapping("/jQueryGanttTestSaveResources") 
+	public void tojQueryGanttTestSaveResources(HttpServletRequest request) throws JsonParseException, JsonMappingException, IOException {
+		String resources = request.getParameter("resources");
+		
+		System.out.println(resources);
+		// ObjectMapper mapper = new ObjectMapper();
+		// List<Resources> lendReco = mapper.readValue(parameter1,new TypeReference<List<Resources>>(){});
+		// List<Resources> lendReco = parseJson(parameter2, new TypeReference<List<Resources>>() {});
+		 //System.out.println(lendReco.size());
+		 //JSONArray platformList = JSON.parseArray(parameter2);
+
+		//JSONArray json = JSONArray.fromObject("");//userStr是json字符串
+		 // List<User> users= (List<User>)JSONArray.toCollection(json, User.class);
+/*		List<Resources> resources = new ArrayList<>();
 		Resources resources1 = new Resources("1", "Resource 1");
 		Resources resources2 = new Resources("2", "Resource 2");
 		Resources resources3 = new Resources("3", "Resource 3");
 		resources.add(resources1);
 		resources.add(resources2);
-		resources.add(resources3);
+		resources.add(resources3);*/
 		
-		return resources;
+	}
+	
+	
 
+	long addDay(long time ,int day){
+		long oneDay = 60*60*24*1000;
+		long days =time+oneDay*day;
+		
+		return days;
+		
 	}
 }

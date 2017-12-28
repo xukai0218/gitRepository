@@ -60,7 +60,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		
-		System.out.println("HandlerInterceptor1...postHandle");
+		//System.out.println("HandlerInterceptor1...postHandle");
 		
 	}
 
@@ -71,7 +71,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		
-		System.out.println("HandlerInterceptor1...afterCompletion");
+		//System.out.println("HandlerInterceptor1...afterCompletion");
 	}
 
 }

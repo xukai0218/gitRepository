@@ -8,6 +8,18 @@ public class Tasks {//id, name, code, level, start, duration, collapsed
 	private long start;
 	private int duration;
 	private long end;
+	private String status;
+	public Tasks(int id, String name, String code, int level, long start, int duration, long end, String status) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.code = code;
+		this.level = level;
+		this.start = start;
+		this.duration = duration;
+		this.end = end;
+		this.status = status;
+	}
 	public Tasks(int id, String name, String code, int level, long start, int duration, long end) {
 		super();
 		this.id = id;
@@ -59,6 +71,12 @@ public class Tasks {//id, name, code, level, start, duration, collapsed
 	}
 	public void setEnd(long end) {
 		this.end = end;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	
