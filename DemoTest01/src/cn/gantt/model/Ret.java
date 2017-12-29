@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.itcast.ssm.po.Resources;
 import cn.itcast.ssm.po.Roles;
+import cn.itcast.ssm.po.Tasks;
 
 public class Ret {
 	private List<Tasks> tasks;
@@ -15,6 +16,7 @@ public class Ret {
 	private boolean canDelete = true;
 	private boolean canWriteOnParent = true;
 	private String zoom;
+	
 	
 	public Ret(List<Tasks> tasks, List<Resources> resources, List<Roles> roles, int selectRow,
 			List<String> deletedTaskIds, boolean canWrite, boolean canDelete, boolean canWriteOnParent, String zoom) {
@@ -83,13 +85,8 @@ public class Ret {
 	public void setZoom(String zoom) {
 		this.zoom = zoom;
 	}
-
-
-
-
-
 	
-
+	
 
 
 }

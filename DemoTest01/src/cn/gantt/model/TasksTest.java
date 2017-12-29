@@ -1,6 +1,6 @@
 package cn.gantt.model;
 
-public class Tasks {//id, name, code, level, start, duration, collapsed
+public class TasksTest {//id, name, code, level, start, duration, collapsed
 	private int id;
 	private String name;
 	private String code;
@@ -9,7 +9,7 @@ public class Tasks {//id, name, code, level, start, duration, collapsed
 	private int duration;
 	private long end;
 	private String status;
-	public Tasks(int id, String name, String code, int level, long start, int duration, long end, String status) {
+	public TasksTest(int id, String name, String code, int level, long start, int duration, long end, String status) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -20,7 +20,7 @@ public class Tasks {//id, name, code, level, start, duration, collapsed
 		this.end = end;
 		this.status = status;
 	}
-	public Tasks(int id, String name, String code, int level, long start, int duration, long end) {
+	public TasksTest(int id, String name, String code, int level, long start, int duration, long end) {
 		super();
 		this.id = id;
 		this.name = name;

@@ -241,10 +241,10 @@ function createModalPopup(width, height, onCloseCallBack, cssClass, element, pop
 		$("#twMainContainer").addClass("blur");
 
 	showBG(bg, 300, function(){})
-	bg.on("click",function(event){
+/*	bg.on("click",function(event){
 		if ($(event.target).closest(".bwinPopupd").length <= 0)
 			bg.trigger("close");
-	});
+	})*/;
 
 	var close = $("<span class=\"teamworkIcon close popUpClose\" style='cursor:pointer;position:absolute;'>x</span>");
 	internalDiv.append(close);

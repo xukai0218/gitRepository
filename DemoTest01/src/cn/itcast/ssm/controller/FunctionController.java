@@ -22,11 +22,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import cn.gantt.model.Ret;
-import cn.gantt.model.Tasks;
+import cn.gantt.model.TasksTest;
 import cn.itcast.ssm.po.Resources;
 import cn.itcast.ssm.po.Roles;
+import cn.itcast.ssm.po.Tasks;
 import cn.itcast.ssm.service.ResourcesService;
 import cn.itcast.ssm.service.RolesService;
+import cn.itcast.ssm.service.TasksService;
 
 
 /**
@@ -44,6 +46,9 @@ public class FunctionController {
 	
 	@Autowired
 	private RolesService rolesService;
+	
+	@Autowired
+	private TasksService tasksService;
 	
 	@RequestMapping("/yellow")
 	public String toYellowPage() {
@@ -112,16 +117,20 @@ public class FunctionController {
 	@RequestMapping("/jQueryGanttTestAll")
 	@ResponseBody
 	public Ret tojQueryGanttTestAll() {
-	long currentTime = System.currentTimeMillis();
-		Tasks task1 = new Tasks(1, "task1", "1", 0, currentTime, 1, currentTime,"STATUS_ACTIVE");
-		Tasks task2 = new Tasks(2, "task2", "2", 1, addDay(currentTime,1), 2,currentTime,"STATUS_DONE");
-		Tasks task3 = new Tasks(3, "task3", "3", 2, currentTime, 3, currentTime,"STATUS_SUSPENDED");
-		Tasks task4 = new Tasks(4, "task3", "4", 4, currentTime, 4,currentTime,"STATUS_UNDEFINED");
-		List<Tasks> tasks = new ArrayList<>();
-		tasks.add(task1);
-		tasks.add(task2);
-		tasks.add(task3);
-		tasks.add(task4);
+		String[] str = {}; 
+	List<Tasks> tasks = new ArrayList<>();
+	try {
+		tasks=tasksService.selectAllTasks();
+		int size = tasks.size();
+		for(int i = 0 ; i < size;i++){
+			tasks.get(i).setAssigs(str);
+		}
+		System.out.println();
+		//tasks.get(0).getAssigs();
+	} catch (Exception e1) {
+		// TODO 自动生成的 catch 块
+		e1.printStackTrace();
+	}
 		List<Resources> resources = null;
 		try {
 			resources = resourcesService.selectAllResources();
@@ -140,7 +149,7 @@ public class FunctionController {
 
 		
 		List<String> deletedTaskIds = new ArrayList<>();
-		Ret ret = new Ret(tasks,resources,roles,1,deletedTaskIds,true,true,true,"w3");
+		Ret ret = new Ret(tasks,resources,roles,5,deletedTaskIds,true,true,true,"w3");
 		
 		return ret;
 

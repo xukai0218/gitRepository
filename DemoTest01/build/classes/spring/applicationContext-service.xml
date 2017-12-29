@@ -17,4 +17,5 @@
 								 
 <bean id="resourcesService" class="cn.itcast.ssm.service.impl.ResourcesServiceImpl"/>
 <bean id="rolesService" class="cn.itcast.ssm.service.impl.RolesServiceImpl"/>
+<bean id="tasksService" class="cn.itcast.ssm.service.impl.TasksServiceImpl"/>
 </beans>
