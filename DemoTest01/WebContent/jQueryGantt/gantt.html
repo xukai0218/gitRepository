@@ -272,7 +272,7 @@ function loadFromLocalStorage() {
   var resources
   var all;
   $.ajax({
-	  url:"/DemoTest01/FunctionList/jQueryGanttTestAll.do",
+	  url:"/DemoTest01/getTasksAll.do",
 	  type:"post",
 	  data : '',
 	  dataType : "json",
@@ -286,20 +286,7 @@ function loadFromLocalStorage() {
 		},
   }); 
   
-/*    $.ajax({
-	  url:"/DemoTest01/FunctionList/jQueryGanttTestResources.do",
-	  type:"post",
-	  data : '',
-	  dataType : "json",
-	  async:false,
-	  success :function (data){
-		  console.log(data);
-		  tasks =data;
-	  },
-	  error : function(data) {
-			alert("有误的");
-		},
-  });  */
+
  
  
  /*   if (localStorage) {
@@ -312,9 +299,9 @@ function loadFromLocalStorage() {
   //if not found create a new example task
   if (!ret || !ret.tasks || ret.tasks.length == 0){
 	  ret=tasks;
-/* 	  ret= {
+ 	  /*ret= {
 		"tasks":[
-      {"id": -1, "name": "Gantt editor", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 0, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 20, "end": 1399586399999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": "[]", "hasChild": true},
+       {"id": -1, "name": "Gantt editor", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 0, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 20, "end": 1399586399999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": "[]", "hasChild": true},
       {"id": -2, "name": "coding", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 1, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 10, "end": 1398203999999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": true},
       {"id": -3, "name": "gantt part", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 2, "end": 1397167199999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false},
       {"id": -4, "name": "editor part", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_SUSPENDED", "depends": "3", "canWrite": true, "start": 1397167200000, "duration": 4, "end": 1397685599999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false},
@@ -324,16 +311,16 @@ function loadFromLocalStorage() {
       {"id": -8, "name": "test on chrome", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 2, "status": "STATUS_SUSPENDED", "depends": "6", "canWrite": true, "start": 1399327200000, "duration": 2, "end": 1399499999999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [], "hasChild": false}
     ]  , 
        "resources": [
-      {"id": "tmp_1", "name": "Resource 1"},
-      {"id": "tmp_2", "name": "Resource 2"},
-      {"id": "tmp_3", "name": "Resource 3"},
-      {"id": "tmp_4", "name": "Resource 4"}
+      {"id": 1, "name": "Resource 1"},
+      {"id": 2, "name": "Resource 2"},
+      {"id": 3, "name": "Resource 3"},
+      {"id": 4, "name": "Resource 4"}
     ]  ,
       "roles":       [
-      {"id": "tmp_1", "name": "Project Manager"},
-      {"id": "tmp_2", "name": "Worker"},
-      {"id": "tmp_3", "name": "Stakeholder"},
-      {"id": "tmp_4", "name": "Customer"}
+      {"id": 1, "name": "Project Manager"},
+      {"id": 2, "name": "Worker"},
+      {"id": 3, "name": "Stakeholder"},
+      {"id": 4, "name": "Customer"}
     ], 
     "selectedRow": 2,
     "deletedTaskIds": [],
@@ -341,19 +328,21 @@ function loadFromLocalStorage() {
     "canDelete":true, 
     "canWriteOnParent": true, 
     "zoom": "w3"
-    }   */
+    } */   
  
 
+  /*   var offset=new Date().getTime()-ret.tasks[0].start;
+    ret.tasks[0].start = ret.tasks[0].start + offset; */
     //actualize data
-    var offset=new Date().getTime()-ret.tasks[0].start;
+/*     var offset=new Date().getTime()-ret.tasks[0].start;
     for (var i=0;i<ret.tasks.length;i++) {
       ret.tasks[i].start = ret.tasks[i].start + offset;
-    }
+    } */
   }
   return ret;
 }
 
-
+//保存
 function saveInLocalStorage() {
   var prj = ge.saveProject();
   if (localStorage) {
@@ -363,8 +352,24 @@ function saveInLocalStorage() {
 
 function saveServer(){
 
-    var prj = ge.saveProject();
-    console.log(prj);
+	var tasks = JSON.stringify(ge.saveProject());
+    //var tasks = ge.saveProject();
+    console.log(tasks);
+    // 保存成员
+    $.ajax({
+ 	  url:"/DemoTest01/SaveTasks.do",
+ 	  type:"post",
+ 	  data : {"tasks":tasks},
+ 	  dataType : "json",
+ 	  async:false,
+ 	  success :function (data){
+ 		  console.log(data);
+ 		  tasks =data;
+ 	  },
+ 	  error : function(data) {
+ 			//alert("有误的");
+ 		},
+   });
 }
 
 //-------------------------------------------  Open a black popup for managing resources. This is only an axample of implementation (usually resources come from server) ------------------------------------------------------
@@ -388,21 +393,8 @@ function editResources(){
   
    //bind del resource
   resourceEditor.find(".delRes").click(function(){
-      //var name = resTbl.find("input[name]").val();
-      //alert(name);
-	  //$(this).closest("tr").remove()
-/* 	  alert("del");
-  var row = resourceEditor.find("[resId="+res.name+"]");
-  row.val();
-  console.log(resTbl); */
-  //alert(row);
-	 /*  $.JST.loadDecorator("RESOURCE_ROW", function(resTr, res){
-		    resTr.find(".delRes").click(function(){$(this).closest("tr").remove()});
-		  }); */
-	//  var tr = $(this).closest("[assId]").fadeOut(200, function(){$(this).remove()});
-	 // resTbl.remove($.JST.createFromTemplate({id:"new",name:"resource"}, "RESOURCE_ROW"))
-    	
-    
+	  alert($(this).find("tr[resId]").val()+'1');
+    //alert(resTbl.html().find("tr[resId]").val());
   }); 
 
 
@@ -728,10 +720,8 @@ function editResources(){
 <script type="text/javascript">
   $.JST.loadDecorator("RESOURCE_ROW", function(resTr, res){
 	resTr.find(".delRes").click(function(){
-		// alert($(this).closest("tr").html().find("td"));
-		alert(resTr.find(".delRes").id);
-		var a = resTr.find(".delRes").resid;
-		console.log(resTr.find(".delRes").val());
+		 alert($(this).closest("tr").find("input").val());
+		 alert($(this).closest("tr").find("tr").val()+'724');
 		$(this).closest("tr").remove()
 	});
     //resTr.find(".delRess").click(function(){

@@ -20,7 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import cn.gantt.model.Assignment;
 import cn.gantt.model.Ret;
 import cn.gantt.model.TasksTest;
 import cn.itcast.ssm.po.Resources;
@@ -114,16 +114,19 @@ public class FunctionController {
 
 	}
 
-	@RequestMapping("/jQueryGanttTestAll")
+	/*@RequestMapping("/jQueryGanttTestAll")
 	@ResponseBody
 	public Ret tojQueryGanttTestAll() {
-		String[] str = {}; 
+		String[] str = {}; //{id: "tmp_1514512760705_1", resourceId: "1", roleId: "1", effort: 0}
+		Assignment assignment = new Assignment("1","1","1",0);
+		List<cn.itcast.ssm.po.Assignment> assigs = new ArrayList<>();
+		assigs.add(assignment);
 	List<Tasks> tasks = new ArrayList<>();
 	try {
 		tasks=tasksService.selectAllTasks();
 		int size = tasks.size();
 		for(int i = 0 ; i < size;i++){
-			tasks.get(i).setAssigs(str);
+			tasks.get(i).setAssigs(assigs);
 		}
 		System.out.println();
 		//tasks.get(0).getAssigs();
@@ -149,11 +152,11 @@ public class FunctionController {
 
 		
 		List<String> deletedTaskIds = new ArrayList<>();
-		Ret ret = new Ret(tasks,resources,roles,5,deletedTaskIds,true,true,true,"w3");
+		Ret ret = new Ret(tasks,resources,roles,5,true,true,true,"w3");
 		
 		return ret;
 
-	}
+	}*/
 	@RequestMapping("/jQueryGanttTestSaveResources") 
 	public void tojQueryGanttTestSaveResources(HttpServletRequest request) throws JsonParseException, JsonMappingException, IOException {
 		String resources = request.getParameter("resources");

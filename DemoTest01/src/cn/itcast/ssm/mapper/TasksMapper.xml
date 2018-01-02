@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.ssm.mapper.TasksMapper" >
+ 	<select id="selectAllTasks" resultType="cn.itcast.ssm.po.Tasks"  >
+		select * from tasks 
+  </select>
+  
+  	<select id="selectAllTasksResultMap" resultMap="selectAllTasksResultMap"  >
+			SELECT
+				t.*, 
+				a.id assid,
+				a.resourceId,
+				a.roleId,
+				a.effort
+			FROM
+				tasks t,
+				assignment a
+			WHERE
+				t.assigs = a.id
+  </select>
+  
+  <select id="getAssigsId" parameterType="cn.itcast.ssm.po.Tasks" resultType="String">
+  		SELECT
+			t.assigs
+		FROM
+			tasks t
+		WHERE
+			t.id = #{id}
+  </select>
+  
+  
+   	<select id="selectTasksResultMap" parameterType="cn.itcast.ssm.po.TasksVo" resultMap="selectAllTasksResultMap"  >
+   	
+			SELECT
+				t.*, 
+				a.id assid,
+				a.resourceId,
+				a.roleId,
+				a.effort
+			FROM
+				tasks t,
+				assignment a
+	<!-- 		where	
+					t.id = 1
+				AND a.id IN (   1, 2) -->
+			 <where>
+					<include refid="tasks"></include>
+			</where> 
+					
+  </select>
+  
+  <sql id="tasks">
+		<if test="tasks!=null">
+			<if test="tasks.id!=null and tasks.id!=''">
+				and t.id = #{tasks.id}
+			</if>
+		
+			<!-- 实现  “ and id IN(1,10,16)”拼接 -->
+			<foreach collection="assigsIdList" item="assigs_id" open="and a.id IN(" close=")" separator=",">
+				 #{assigs_id}
+			</foreach> 
+			
+		</if>
+	</sql>
+
+  
+  
+  
+<resultMap type="cn.itcast.ssm.po.Tasks" id="selectAllTasksResultMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="progress" property="progressByWorklog"/>
+		<result column="relevance" property="relevance"/>
+		<result column="type" property="type"/>
+		<result column="typeId" property="typeId"/>
+		<result column="description" property="description"/>
+		<result column="code" property="code"/>
+		<result column="level" property="level"/>
+		<result column="status" property="status"/>
+		<result column="depends" property="depends"/>
+		<result column="canWrite" property="canWrite"/>
+		<result column="start" property="start"/>
+		<result column="duration" property="duration"/>
+		<result column="end" property="end"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="endIsMilestone" property="endIsMilestone"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="collapsed" property="collapsed"/>
+		<result column="hasChild" property="hasChild"/>
+		
+		<collection property="assigs" ofType="cn.itcast.ssm.po.Assignment">
+			<id column="assid" property="id"/>
+			<result column="resourceId" property="resourceId"/>
+			<result column="roleId" property="roleId"/>
+			<result column="effort" property="effort"/>
+		</collection>
+</resultMap>  
+
+
+</mapper>
