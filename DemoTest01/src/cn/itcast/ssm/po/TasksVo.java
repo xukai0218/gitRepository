@@ -15,6 +15,8 @@ import java.util.List;
 public class TasksVo {
 	private Tasks tasks;
 	private List<Integer> assigsIdList = new ArrayList<Integer>();
+	private String assigsIds;
+	
 	public Tasks getTasks() {
 		return tasks;
 	}
@@ -27,6 +29,13 @@ public class TasksVo {
 	public void setAssigsIdList(List<Integer> assigsIdList) {
 		this.assigsIdList = assigsIdList;
 	}
+	public String getAssigsIds() {
+		return assigsIds;
+	}
+	public void setAssigsIds(String assigsIds) {
+		this.assigsIds = assigsIds;
+	}
+	
 	
 	
 }

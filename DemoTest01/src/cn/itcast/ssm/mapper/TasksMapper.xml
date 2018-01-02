@@ -28,7 +28,32 @@
 			t.id = #{id}
   </select>
   
+ <update id="updateTasks" parameterType="cn.itcast.ssm.po.TasksVo">
+ 	UPDATE tasks
+		SET 
+			name = #{tasks.name},
+			progress = #{tasks.progress},
+			progressByWorklog = #{tasks.progressByWorklog},
+			relevance =#{tasks.relevance},
+			type =#{tasks.type},
+			typeId =#{tasks.typeId},
+			description =#{tasks.description},
+			code =#{tasks.code},
+			status =#{tasks.status},
+			canWrite =#{tasks.canWrite},
+			start =#{tasks.start},
+			duration =#{tasks.duration},
+			end =#{tasks.end},
+			endIsMilestone =#{tasks.endIsMilestone},
+			startIsMilestone =#{tasks.startIsMilestone},
+			collapsed =#{tasks.collapsed},
+			hasChild =#{tasks.hasChild},
+			assigs=#{assigsIds}
+		WHERE
+			id = #{tasks.id}
+ </update>
   
+
    	<select id="selectTasksResultMap" parameterType="cn.itcast.ssm.po.TasksVo" resultMap="selectAllTasksResultMap"  >
    	
 			SELECT

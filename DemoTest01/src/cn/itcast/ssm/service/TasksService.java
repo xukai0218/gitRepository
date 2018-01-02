@@ -16,4 +16,7 @@ public interface TasksService {
 	public String getAssigsId(Tasks tasks) throws Exception;
 	
 	public List<Tasks> selectTasksResultMap(TasksVo tasksVo) throws Exception;
+	
+	public void updateTasks(TasksVo tasksVo) throws Exception;
+	
 }

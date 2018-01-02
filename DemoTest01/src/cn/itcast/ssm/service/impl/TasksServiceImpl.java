@@ -45,6 +45,12 @@ public class TasksServiceImpl implements TasksService{
 		
 		return tasksMapper.selectTasksResultMap(tasksVo);
 	}
+
+	@Override
+	public void updateTasks(TasksVo tasksVo) throws Exception {
+		
+		tasksMapper.updateTasks(tasksVo);
+	}
 	
 
 
