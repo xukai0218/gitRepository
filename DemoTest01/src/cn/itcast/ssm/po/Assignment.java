@@ -9,14 +9,24 @@ package cn.itcast.ssm.po;
 *
 */
 public class Assignment {
-	private int id;
+	
+	private String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	private String resourceId;
 	private String roleId;
 	private int effort;
-	
+/*	private int id;
 	public int getId() {
 		return id;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}*/
 	public String getResourceId() {
 		return resourceId;
 	}
@@ -26,9 +36,7 @@ public class Assignment {
 	public int getEffort() {
 		return effort;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public void setResourceId(String resourceId) {
 		this.resourceId = resourceId;
 	}

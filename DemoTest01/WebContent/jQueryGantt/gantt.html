@@ -298,9 +298,9 @@ function loadFromLocalStorage() {
   var one ={"id":4,"name":"Test444","start":1396994400000,"end":1398203999999,"duration":0};
   //if not found create a new example task
   if (!ret || !ret.tasks || ret.tasks.length == 0){
-	  //ret=tasks;
+	  ret=tasks;
  	  
-  ret= {
+ /*  ret= {
 	"tasks":[
       
       {"id": -1, "name": "Gantt editor", "progress": 0, "progressByWorklog": false, "relevance": 0, "type": "", "typeId": "", "description": "", "code": "", "level": 0, "status": "STATUS_ACTIVE", "depends": "", "canWrite": true, "start": 1396994400000, "duration": 20, "end": 1399586399999, "startIsMilestone": false, "endIsMilestone": false, "collapsed": false, "assigs": [{id: "1", resourceId: "1", roleId: "1", effort: 0}], "hasChild": true},
@@ -330,7 +330,7 @@ function loadFromLocalStorage() {
     "canDelete":true, 
     "canWriteOnParent": true, 
     "zoom": "w3"
-    }    
+    }  */   
  
 
   /*   var offset=new Date().getTime()-ret.tasks[0].start;

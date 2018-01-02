@@ -40,6 +40,7 @@
 			description =#{tasks.description},
 			code =#{tasks.code},
 			status =#{tasks.status},
+			level=#{tasks.level},
 			canWrite =#{tasks.canWrite},
 			start =#{tasks.start},
 			duration =#{tasks.duration},
@@ -53,6 +54,49 @@
 			id = #{tasks.id}
  </update>
   
+  <insert id="insertTasks" parameterType="cn.itcast.ssm.po.TasksVo">
+  		insert into  tasks (
+			name,
+			progress,
+			progressByWorklog,
+			relevance,
+			type,
+			typeId,
+			description,
+			code,
+			status,
+			level,
+			canWrite,
+			start,
+			duration,
+			end,
+			endIsMilestone,
+			startIsMilestone,
+			collapsed,
+			hasChild,
+			assigs)
+					 values (
+					#{tasks.name},
+					#{tasks.progress},
+					#{tasks.progressByWorklog},
+					#{tasks.relevance},
+					#{tasks.type},
+					#{tasks.typeId},
+					#{tasks.description},
+					#{tasks.code},
+					#{tasks.status},
+					#{tasks.level},
+					#{tasks.canWrite},
+					#{tasks.start},
+					#{tasks.duration},
+					#{tasks.end},
+					#{tasks.endIsMilestone},
+					#{tasks.startIsMilestone},
+					#{tasks.collapsed},
+					#{tasks.hasChild},
+					#{assigsIds}
+					)
+  </insert>
 
    	<select id="selectTasksResultMap" parameterType="cn.itcast.ssm.po.TasksVo" resultMap="selectAllTasksResultMap"  >
    	
@@ -94,7 +138,8 @@
 <resultMap type="cn.itcast.ssm.po.Tasks" id="selectAllTasksResultMap">
 		<id column="id" property="id"/>
 		<result column="name" property="name"/>
-		<result column="progress" property="progressByWorklog"/>
+		<result column="progress" property="progress"/>
+		<result column="progressByWorklog" property="progressByWorklog"/>
 		<result column="relevance" property="relevance"/>
 		<result column="type" property="type"/>
 		<result column="typeId" property="typeId"/>

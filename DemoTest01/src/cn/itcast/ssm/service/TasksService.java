@@ -19,4 +19,6 @@ public interface TasksService {
 	
 	public void updateTasks(TasksVo tasksVo) throws Exception;
 	
+	public void insertTasks(TasksVo tasksVo) throws Exception;
+	
 }

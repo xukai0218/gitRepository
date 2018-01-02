@@ -23,4 +23,7 @@ public interface TasksMapper {
 	public List<Tasks> selectTasksResultMap(TasksVo tasksVo) throws Exception;
 	
 	public void updateTasks(TasksVo tasksVo) throws Exception;
+	
+	public void insertTasks(TasksVo tasksVo) throws Exception;
+	
 }

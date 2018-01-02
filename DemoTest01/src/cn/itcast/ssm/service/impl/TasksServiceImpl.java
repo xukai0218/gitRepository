@@ -9,8 +9,6 @@ import cn.itcast.ssm.po.Tasks;
 import cn.itcast.ssm.po.TasksVo;
 import cn.itcast.ssm.service.TasksService;
 
-
-
 /**
 * @ClassName: TasksServiceImpl
 * @Description:
@@ -50,6 +48,12 @@ public class TasksServiceImpl implements TasksService{
 	public void updateTasks(TasksVo tasksVo) throws Exception {
 		
 		tasksMapper.updateTasks(tasksVo);
+	}
+
+	@Override
+	public void insertTasks(TasksVo tasksVo) throws Exception {
+		
+		tasksMapper.insertTasks(tasksVo);
 	}
 	
 

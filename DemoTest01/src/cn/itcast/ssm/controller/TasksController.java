@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
-import cn.gantt.model.Assignment;
 import cn.gantt.model.Ret;
 import cn.gantt.model.Ret2;
+import cn.itcast.ssm.po.Assignment;
 import cn.itcast.ssm.po.Resources;
 import cn.itcast.ssm.po.Roles;
 import cn.itcast.ssm.po.Tasks;
@@ -54,7 +54,7 @@ public class TasksController {
 	@ResponseBody
 	public Ret getTasksAll() throws Exception {
 		String[] str = {}; // {id: "tmp_1514512760705_1", resourceId: "1",
-							// roleId: "1", effort: 0}
+		// roleId: "1", effort: 0}
 		tasks = tasksService.selectAllTasksResultMap();
 		resources = resourcesService.selectAllResources();
 		roles = rolesService.selectAllRoles();
@@ -62,7 +62,7 @@ public class TasksController {
 		List<Integer> assigsIdList = null;
 		TasksVo tasksVo = null;
 		List<Tasks> tasksList = new ArrayList<Tasks>();
-		for (int i = 0; i <tasks.size(); i++) {
+		for (int i = 0; i < tasks.size(); i++) {
 			String assigsId = tasksService.getAssigsId(tasks.get(i));
 			String[] a = assigsId.split(",");
 			assigsIdList = new ArrayList<Integer>();
@@ -87,26 +87,28 @@ public class TasksController {
 
 	@RequestMapping("/SaveTasks")
 	public void SaveResources(HttpServletRequest request) throws Exception {
-		//拼接格式 让 fastjson 解析
-		String tasksArrStr = "["+request.getParameter("tasks")+"]";
-		
+		//{"id":"tmp_fk1514880373436_1",
+		// 拼接格式 让 fastjson 解析
+		String tasksArrStr = "[" + request.getParameter("tasks") + "]";
+		// 获得后台Json 数据 转为 Ret对象集合
 		List<Ret> list = JSON.parseObject(tasksArrStr, new TypeReference<List<Ret>>() {});
-
-		Tasks task =list.get(0).getTasks().get(0);
-		TasksVo taskVo=new TasksVo();
-		String assigsIds = "" ;
-		List<cn.itcast.ssm.po.Assignment> assigs = task.getAssigs();
-		for(int i =0 ;i<assigs.size();i++){
-			assigsIds+=assigs.get(i).getResourceId()+",";
+		int size = list.get(0).getTasks().size();
+		//遍历每条数据 存进数据库
+		for (int n = 0; n < size; n++) {
+			Tasks task = list.get(0).getTasks().get(n);// 获得每行数据
+			TasksVo taskVo = new TasksVo();
+			String assigsIds = "";
+			List<Assignment> assigs = task.getAssigs();
+			// 将前台的 assigs 集合 转为 1,2,3 字符串存到数据库
+			for (int i = 0; i < assigs.size(); i++) {
+				assigsIds += assigs.get(i).getResourceId() + ",";
+			}
+			assigsIds = assigsIds.substring(0, assigsIds.length() - 1);
+			taskVo.setTasks(task);
+			taskVo.setAssigsIds(assigsIds);
+			tasksService.updateTasks(taskVo);
 		}
-		assigsIds=assigsIds.substring(0, assigsIds.length()-1);
-		taskVo.setTasks( list.get(0).getTasks().get(0));
-		taskVo.setAssigsIds(assigsIds);
-		
-		tasksService.updateTasks(taskVo);
-		System.out.println(list.get(0).getTasks().get(0).getAssigs().get(0).getId());
 
 	}
-
 
 }
