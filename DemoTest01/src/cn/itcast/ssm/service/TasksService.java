@@ -21,4 +21,8 @@ public interface TasksService {
 	
 	public void insertTasks(TasksVo tasksVo) throws Exception;
 	
+	public String getTasksById(int taskId) throws Exception;
+	
+	public void delTasksById(Tasks tasks) throws Exception;
+	
 }

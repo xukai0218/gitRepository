@@ -10,9 +10,9 @@
 <title>列表页面</title>
 </head>
 <body>
-    <h4>练习功能：</h4>
+   <!--  <h4>练习功能：</h4>
 	<ul>
-        <li><!-- /DemoTest01/WebContent/WEB-INF/page/FunctionList/yellow/picture.jsp -->
+        <li>/DemoTest01/WebContent/WEB-INF/page/FunctionList/yellow/picture.jsp
             <a href="FunctionList/yellow.do"><p>1</p></a>
         </li>
 		<li>
@@ -30,8 +30,8 @@
 		<li>
 			<a href="jQueryGantt/gantt.html"><p>JQueryGantt.html</p></a>
 		</li>
-	</ul>
-
+	</ul> -->
+<a href="jQueryGantt/gantt.html"><p>JQueryGantt.html</p></a>
 
 </body>
 </html>

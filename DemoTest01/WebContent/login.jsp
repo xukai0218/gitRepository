@@ -8,7 +8,7 @@
 
     <head>
 
-        <meta charset="utf-8">
+<%--         <meta charset="utf-8">
         <title>登录页面</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -23,7 +23,7 @@
         <script src="${ctx}/assets/login-background/js/jquery-1.8.2.min.js"></script>
         <script src="${ctx}/assets/login-background/js/supersized.3.2.7.min.js"></script>
         <script src="${ctx}/assets/login-background/js/supersized-init.js"></script>
-        <script src="${ctx}/assets/login-background/js/scripts.js"></script>
+        <script src="${ctx}/assets/login-background/js/scripts.js"></script> --%>
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -33,12 +33,15 @@
     </head>
 
     <body>
-    <!-- 隐藏域 -->
+    <a href="jQueryGantt/gantt.html"><p>JQueryGantt.html</p></a>
+    
+    
+<!--     隐藏域
      <input type="hidden"  id = "hidden" value=${ctx}/>
       <div class="page-container">
             <h1>Login</h1>
          <form  id="form" action="FunctionList.do" method="post"> 
-       <!--  <form  id="form"  > -->
+        <form  id="form"  >
                 <input type="text" name="username" class="username" placeholder="Username">
                 <input type="password" name="password" class="password" placeholder="Password">
                 <button id="button" type="submit">Sign me in</button>
@@ -46,7 +49,7 @@
 
                 <div class="error"><span>+</span></div>
         </form>
-       </div>
+       </div> -->
 
     </body>
 

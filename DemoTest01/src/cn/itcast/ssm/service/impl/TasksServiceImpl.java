@@ -55,6 +55,19 @@ public class TasksServiceImpl implements TasksService{
 		
 		tasksMapper.insertTasks(tasksVo);
 	}
+
+	@Override
+	public String getTasksById(int taskId) throws Exception {
+		
+		return tasksMapper.getTasksById(taskId);
+	}
+
+	@Override
+	public void delTasksById(Tasks tasks) throws Exception {
+		
+		tasksMapper.delTasksById(tasks);
+		
+	}
 	
 
 

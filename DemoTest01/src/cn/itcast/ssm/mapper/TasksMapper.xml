@@ -28,6 +28,15 @@
 			t.id = #{id}
   </select>
   
+  <select id="getTasksById" parameterType="int" resultType="String" >
+  	SELECT
+			t.id
+		FROM
+			tasks t
+		WHERE
+			t.id = #{id}
+  </select>
+  
  <update id="updateTasks" parameterType="cn.itcast.ssm.po.TasksVo">
  	UPDATE tasks
 		SET 
@@ -54,8 +63,9 @@
 			id = #{tasks.id}
  </update>
   
-  <insert id="insertTasks" parameterType="cn.itcast.ssm.po.TasksVo">
+  <insert id="insertTasks" parameterType="cn.itcast.ssm.po.Tasks">
   		insert into  tasks (
+  			id,
 			name,
 			progress,
 			progressByWorklog,
@@ -76,6 +86,7 @@
 			hasChild,
 			assigs)
 					 values (
+					#{tasks.id},
 					#{tasks.name},
 					#{tasks.progress},
 					#{tasks.progressByWorklog},
@@ -97,6 +108,11 @@
 					#{assigsIds}
 					)
   </insert>
+  
+  <delete id="delTasksById" parameterType="cn.itcast.ssm.po.Tasks" >
+  				delete from Tasks where id = #{id}
+  
+  </delete>
 
    	<select id="selectTasksResultMap" parameterType="cn.itcast.ssm.po.TasksVo" resultMap="selectAllTasksResultMap"  >
    	
@@ -123,12 +139,12 @@
 			<if test="tasks.id!=null and tasks.id!=''">
 				and t.id = #{tasks.id}
 			</if>
-		
+		<if test="assigsIdList!=null">
 			<!-- 实现  “ and id IN(1,10,16)”拼接 -->
 			<foreach collection="assigsIdList" item="assigs_id" open="and a.id IN(" close=")" separator=",">
 				 #{assigs_id}
 			</foreach> 
-			
+		</if>
 		</if>
 	</sql>
 

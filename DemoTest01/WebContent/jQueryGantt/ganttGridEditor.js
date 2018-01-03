@@ -70,7 +70,9 @@ GridEditor.prototype.fillEmptyLines = function () {
       var cnt=0;
       emptyRow.prevAll(".emptyRow").addBack().each(function () {
         cnt++;
-        var ch = factory.build("tmp_fk" + new Date().getTime()+"_"+cnt, "", "", level, start, 1);
+        var num = master.tasks.length;
+        //var ch = factory.build("tmp_fk" + new Date().getTime()+"_"+cnt, "", "", level, start, 1);
+        var ch = factory.build(num+cnt, "", "", level, start, 1);
         var task = master.addTask(ch);
         lastTask = ch;
       });
