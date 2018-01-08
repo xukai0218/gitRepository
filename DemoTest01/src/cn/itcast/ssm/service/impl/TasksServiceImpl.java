@@ -56,17 +56,83 @@ public class TasksServiceImpl implements TasksService{
 		tasksMapper.insertTasks(tasksVo);
 	}
 
-	@Override
-	public String getTasksById(int taskId) throws Exception {
+/*	@Override
+	public String getTasksById(String taskId) throws Exception {
 		
+		return tasksMapper.getTasksById(taskId);
+	}*/
+
+	@Override
+	public void delTasksById(String taskId) throws Exception {
+		
+		tasksMapper.delTasksById(taskId);
+		
+	}
+
+	@Override
+	public List<String> getAssigsJson(String projectName) throws Exception {
+		// TODO 自动生成的方法存根
+		return tasksMapper.getAssigsJson(projectName);
+	}
+
+	@Override
+	public void updateTasksNew(TasksVo tasksVo) throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.updateTasksNew(tasksVo);
+	}
+
+	@Override
+	public void delTasksByProjectName(String projectName) throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.delTasksByProjectName(projectName);
+	}
+
+	@Override
+	public void insertTasksNew(TasksVo tasksVo) throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.insertTasksNew(tasksVo);
+	}
+
+	@Override
+	public List<String> getAssigsJsonNew() throws Exception {
+		// TODO 自动生成的方法存根
+		return tasksMapper.getAssigsJsonNew();
+	}
+
+	@Override
+	public List<String> getTasksId() throws Exception {
+		// TODO 自动生成的方法存根
+		return tasksMapper.getTasksId();
+	}
+
+	@Override
+	public String getTasksById(String taskId) throws Exception {
+		// TODO 自动生成的方法存根
 		return tasksMapper.getTasksById(taskId);
 	}
 
 	@Override
-	public void delTasksById(Tasks tasks) throws Exception {
-		
-		tasksMapper.delTasksById(tasks);
-		
+	public void delTasks() throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.delTasks();
+	}
+
+	@Override
+	public void insertTasksBatch(List tasksVoList) throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.insertTasksBatch(tasksVoList);
+	}
+
+	@Override
+	public int getTasksCount() throws Exception {
+		// TODO 自动生成的方法存根
+		return tasksMapper.getTasksCount();
+	}
+
+	@Override
+	public void delTasksCount(int count) throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.delTasksCount(count);
 	}
 	
 

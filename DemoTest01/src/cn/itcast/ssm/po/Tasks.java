@@ -12,7 +12,7 @@ import java.util.List;
 *
 */
 public class Tasks {
-	private int id;
+	private String id;
 	private String name;
 	private int progress;
 	private boolean progressByWorklog;
@@ -34,7 +34,7 @@ public class Tasks {
 	//private String[] assigs;
 	private boolean hasChild;
 	private List<Assignment> assigs;
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getName() {
@@ -106,7 +106,7 @@ public class Tasks {
 	public void setAssigs(List<Assignment> assigs) {
 		this.assigs = assigs;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setName(String name) {

@@ -271,7 +271,7 @@ function loadFromLocalStorage() {
   var tasks;
   var resources
   var all;
-  $.ajax({
+/*   $.ajax({
 	  url:"/DemoTest01/selTasksAll.do",
 	  type:"post",
 	  data : '',
@@ -284,8 +284,21 @@ function loadFromLocalStorage() {
 	  error : function(data) {
 			alert("有误的-286");
 		},
-  }); 
-  
+  });  */
+  $.ajax({
+	  url:"/DemoTest01/selRetAll.do",
+	  type:"post",
+	  data : '',
+	  dataType : "json",
+	  async:false,
+	  success :function (data){
+		  console.log(data);
+		  tasks =data;
+	  },
+	  error : function(data) {
+			//alert("有误的-299");
+		},
+  });
 
  
  
@@ -357,7 +370,7 @@ function saveServer(){
     //var tasks = ge.saveProject();
     console.log(tasks);
     // 保存成员
-    $.ajax({
+    /* $.ajax({
  	  url:"/DemoTest01/SaveTasks.do",
  	  type:"post",
  	  data : {"tasks":tasks},
@@ -370,7 +383,21 @@ function saveServer(){
  	  error : function(data) {
  			//alert("有误的");
  		},
-   });
+   }); */
+    $.ajax({
+   	  url:"/DemoTest01/SaveRet.do",
+   	  type:"post",
+   	  data : {"tasks":tasks},
+   	  dataType : "json",
+   	  async:false,
+   	  success :function (data){
+   		  console.log(data);
+   		  tasks =data;
+   	  },
+   	  error : function(data) {
+   			//alert("有误的");
+   		},
+     });
 }
 
 //-------------------------------------------  Open a black popup for managing resources. This is only an axample of implementation (usually resources come from server) ------------------------------------------------------

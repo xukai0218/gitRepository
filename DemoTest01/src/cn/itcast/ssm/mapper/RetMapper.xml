@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.ssm.mapper.RetMapper" >
+	<select id="selectRet"  resultType="cn.itcast.ssm.po.Ret">
+		select * from ret
+	</select>
+	
+ 	<select id="selectAllRet"  parameterType="String" resultMap="Ret"  >
+		SELECT
+			ret.id ret_id,
+			ret.projectName,
+			ret.resources,
+			ret.roles,
+			ret.selectRow,
+			ret.canWrite,
+			ret.canDelete,
+			ret.canWriteOnParent,
+			ret.zoom,
+			tasks.id tasks_id,
+			tasks.projectName,
+			tasks.name,
+			tasks.progress,
+			tasks.progressByWorklog,
+			tasks.relevance,
+			tasks.type,
+			tasks.typeId,
+			tasks.description,
+			tasks.code,
+			tasks.level,
+			tasks.status,
+			tasks.depends,
+			tasks.canWrite,
+			tasks.start,
+			tasks.duration,
+			tasks.end,
+			tasks.startIsMilestone,
+			tasks.endIsMilestone,
+			tasks.collapsed,
+			tasks.assigs,
+			assignment.id assignment_id,
+			assignment.assignId,
+			assignment.resourceId,
+			assignment.roleId,
+			assignment.effort
+		FROM
+			ret,
+			tasks,
+			assignment
+		WHERE
+			ret.projectName = #{name}
+		<!-- AND tasks.assigs=assignment.taskId -->
+  </select>
+  
+
+  <resultMap type="cn.itcast.ssm.po.Ret" id="Ret">
+  		<result column="selectRow" property="selectRow"/>
+		<result column="canWrite" property="canWrite"/>
+		<result column="canDelete" property="canDelete"/>
+		<result column="canWriteOnParent" property="canWriteOnParent"/>
+		<result column="zoom" property="zoom"/>
+		
+		<collection property="tasks" ofType="cn.itcast.ssm.po.Tasks">
+			<id column="tasks_id" property="id"/>
+			<result column="name" property="name"/>
+			<result column="progress" property="progress"/>
+			<result column="progressByWorklog" property="progressByWorklog"/>
+			<result column="relevance" property="relevance"/>
+			<result column="type" property="type"/>
+			<result column="typeId" property="typeId"/>
+			<result column="description" property="description"/>
+			<result column="code" property="code"/>
+			<result column="level" property="level"/>
+			<result column="status" property="status"/>
+			<result column="depends" property="depends"/>
+			<result column="canWrite" property="canWrite"/>
+			<result column="start" property="start"/>
+			<result column="duration" property="duration"/>
+			<result column="end" property="end"/>
+			<result column="startIsMilestone" property="startIsMilestone"/>
+			<result column="endIsMilestone" property="endIsMilestone"/>
+			<result column="startIsMilestone" property="startIsMilestone"/>
+			<result column="collapsed" property="collapsed"/>
+			<result column="hasChild" property="hasChild"/>
+			
+		<collection property="assigs" ofType="cn.itcast.ssm.po.Assignment">
+				<id column="assignment_id" property="id"/>
+				<result column="resourceId" property="resourceId"/>
+				<result column="roleId" property="roleId"/>
+				<result column="effort" property="effort"/>
+		</collection>
+		
+		</collection>
+		
+		
+		
+	<!-- 	<collection property="assigs" ofType="cn.itcast.ssm.po.Assignment">
+			<id column="assid" property="id"/>
+			<result column="resourceId" property="resourceId"/>
+			<result column="roleId" property="roleId"/>
+			<result column="effort" property="effort"/>
+		</collection> -->
+		
+  </resultMap>
+</mapper>

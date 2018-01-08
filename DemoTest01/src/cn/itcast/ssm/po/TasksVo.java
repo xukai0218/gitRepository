@@ -16,9 +16,23 @@ public class TasksVo {
 	private Tasks tasks;
 	private List<Integer> assigsIdList = new ArrayList<Integer>();
 	private String assigsIds;
+	private String projectName;//项目名
+	private String assigsJson;//责任人String json格式
 	
 	public Tasks getTasks() {
 		return tasks;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public String getAssigsJson() {
+		return assigsJson;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	public void setAssigsJson(String assigsJson) {
+		this.assigsJson = assigsJson;
 	}
 	public List<Integer> getAssigsIdList() {
 		return assigsIdList;

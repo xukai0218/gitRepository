@@ -115,9 +115,9 @@ public class TasksController {
 		
 		
 		// 遍历每条数据 存进数据库
-		for (int n = 0; n < size; n++) {
+		/*for (int n = 0; n < size; n++) {
 			Tasks task = list.get(0).getTasks().get(n);// 获得每行数据
-			int taskId = task.getId();
+			String taskId = task.getId();
 			taskIdList.add(taskId);
 			String isExist = tasksService.getTasksById(taskId);
 			
@@ -143,7 +143,7 @@ public class TasksController {
 			}
 		}
 		
-		
+		*/
 	
 	}
 	

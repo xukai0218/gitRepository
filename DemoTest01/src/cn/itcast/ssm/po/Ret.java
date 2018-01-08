@@ -1,22 +1,33 @@
-package cn.gantt.model;
+package cn.itcast.ssm.po;
 
 import java.util.List;
 
-import cn.itcast.ssm.po.Resources;
-import cn.itcast.ssm.po.Roles;
-import cn.itcast.ssm.po.Tasks;
-
+/**
+ * @ClassName: Ret
+ * @Description:
+ * @author kai.xu
+ * @date 2018年1月4日
+ *
+ */
 public class Ret {
 
 	private List<Tasks> tasks;
 	private List<Resources> resources;
 	private List<Roles> roles;
 	private int selectRow;
-	// private List<String> deletedTaskIds;
+	private List<Integer> deletedTaskIds;
 	private boolean canWrite = true;
 	private boolean canDelete = true;
 	private boolean canWriteOnParent = true;
 	private String zoom;
+
+	public List<Integer> getDeletedTaskIds() {
+		return deletedTaskIds;
+	}
+
+	public void setDeletedTaskIds(List<Integer> deletedTaskIds) {
+		this.deletedTaskIds = deletedTaskIds;
+	}
 
 	public Ret() {
 		super();
