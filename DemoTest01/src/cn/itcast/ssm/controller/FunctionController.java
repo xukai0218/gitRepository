@@ -182,11 +182,4 @@ public class FunctionController {
 	
 	
 
-	long addDay(long time ,int day){
-		long oneDay = 60*60*24*1000;
-		long days =time+oneDay*day;
-		
-		return days;
-		
-	}
 }

@@ -40,8 +40,8 @@
 </head>
 <body style="background-color: #fff;">
 
-
-<div id="ndo" style="position:absolute;right:5px;top:5px;width:378px;padding:5px;background-color: #FFF5E6; border:1px solid #F9A22F; font-size:12px" class="noprint">
+${name}
+<div style="display:none" id="ndo" style="position:absolute;right:5px;top:5px;width:378px;padding:5px;background-color: #FFF5E6; border:1px solid #F9A22F; font-size:12px" class="noprint">
   This Gantt editor is free thanks to <a href="http://twproject.com" target="_blank">Twproject</a> where it can be used on a complete and flexible project management solution.<br> Get your projects done! Give <a href="http://twproject.com" target="_blank">Twproject a try now</a>.
 </div>
 <div id="workSpace" style="padding:0px; overflow-y:auto; overflow-x:hidden;border:1px solid #e5e5e5;position:relative;margin:0 5px"></div>
@@ -230,28 +230,7 @@ function clearGantt() {
   ge.reset();
 }
 
-function loadI18n() {
-  GanttMaster.messages = {
-    "CANNOT_WRITE":                  "CANNOT_WRITE",
-    "CHANGE_OUT_OF_SCOPE":"NO_RIGHTS_FOR_UPDATE_PARENTS_OUT_OF_EDITOR_SCOPE",
-    "START_IS_MILESTONE":"START_IS_MILESTONE",
-    "END_IS_MILESTONE":"END_IS_MILESTONE",
-    "TASK_HAS_CONSTRAINTS":"TASK_HAS_CONSTRAINTS",
-    "GANTT_ERROR_DEPENDS_ON_OPEN_TASK":"GANTT_ERROR_DEPENDS_ON_OPEN_TASK",
-    "GANTT_ERROR_DESCENDANT_OF_CLOSED_TASK":"GANTT_ERROR_DESCENDANT_OF_CLOSED_TASK",
-    "TASK_HAS_EXTERNAL_DEPS":"TASK_HAS_EXTERNAL_DEPS",
-    "GANTT_ERROR_LOADING_DATA_TASK_REMOVED":"GANTT_ERROR_LOADING_DATA_TASK_REMOVED",
-    "ERROR_SETTING_DATES":"ERROR_SETTING_DATES",
-    "CIRCULAR_REFERENCE":"CIRCULAR_REFERENCE",
-    "CANNOT_DEPENDS_ON_ANCESTORS":"CANNOT_DEPENDS_ON_ANCESTORS",
-    "CANNOT_DEPENDS_ON_DESCENDANTS":"CANNOT_DEPENDS_ON_DESCENDANTS",
-    "INVALID_DATE_FORMAT":"INVALID_DATE_FORMAT",
-    "TASK_MOVE_INCONSISTENT_LEVEL":"TASK_MOVE_INCONSISTENT_LEVEL",
 
-    "GANTT_QUARTER_SHORT":"trim.",
-    "GANTT_SEMESTER_SHORT":"sem."
-  };
-}
 
 
 
@@ -421,7 +400,7 @@ function editResources(){
   
    //bind del resource
   resourceEditor.find(".delRes").click(function(){
-	  alert($(this).find("tr[resId]").val()+'1');
+	 // alert($(this).find("tr[resId]").val()+'1');
     //alert(resTbl.html().find("tr[resId]").val());
   }); 
 
@@ -502,42 +481,42 @@ function editResources(){
     <div class="buttons">
       <a href="https://gantt.twproject.com/"><img src="res/twGanttLogo.png" alt="Twproject" align="absmiddle" style="max-width: 136px; padding-right: 15px"></a>
 
-      <button onclick="$('#workSpace').trigger('undo.gantt');return false;" class="button textual icon requireCanWrite" title="undo"><span class="teamworkIcon">&#39;</span></button>
-      <button onclick="$('#workSpace').trigger('redo.gantt');return false;" class="button textual icon requireCanWrite" title="redo"><span class="teamworkIcon">&middot;</span></button>
+      <button onclick="$('#workSpace').trigger('undo.gantt');return false;" class="button textual icon requireCanWrite" title="撤销"><span class="teamworkIcon">&#39;</span></button>
+      <button onclick="$('#workSpace').trigger('redo.gantt');return false;" class="button textual icon requireCanWrite" title="恢复"><span class="teamworkIcon">&middot;</span></button>
       <span class="ganttButtonSeparator requireCanWrite requireCanAdd"></span>
-      <button onclick="$('#workSpace').trigger('addAboveCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanAdd" title="insert above"><span class="teamworkIcon">l</span></button>
-      <button onclick="$('#workSpace').trigger('addBelowCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanAdd" title="insert below"><span class="teamworkIcon">X</span></button>
+      <button onclick="$('#workSpace').trigger('addAboveCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanAdd" title="在上面插入"><span class="teamworkIcon">l</span></button>
+      <button onclick="$('#workSpace').trigger('addBelowCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanAdd" title="在下面插入"><span class="teamworkIcon">X</span></button>
       <span class="ganttButtonSeparator requireCanWrite requireCanInOutdent"></span>
-      <button onclick="$('#workSpace').trigger('outdentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="un-indent task"><span class="teamworkIcon">.</span></button>
-      <button onclick="$('#workSpace').trigger('indentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="indent task"><span class="teamworkIcon">:</span></button>
+      <button onclick="$('#workSpace').trigger('outdentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="撤销子任务"><span class="teamworkIcon">.</span></button>
+      <button onclick="$('#workSpace').trigger('indentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="设置子任务"><span class="teamworkIcon">:</span></button>
       <span class="ganttButtonSeparator requireCanWrite requireCanMoveUpDown"></span>
-      <button onclick="$('#workSpace').trigger('moveUpCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="move up"><span class="teamworkIcon">k</span></button>
-      <button onclick="$('#workSpace').trigger('moveDownCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="move down"><span class="teamworkIcon">j</span></button>
+      <button onclick="$('#workSpace').trigger('moveUpCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="上移"><span class="teamworkIcon">k</span></button>
+      <button onclick="$('#workSpace').trigger('moveDownCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="下移"><span class="teamworkIcon">j</span></button>
       <span class="ganttButtonSeparator requireCanDelete"></span>
-      <button onclick="$('#workSpace').trigger('deleteFocused.gantt');return false;" class="button textual icon delete requireCanWrite" title="Delete"><span class="teamworkIcon">&cent;</span></button>
+      <button onclick="$('#workSpace').trigger('deleteFocused.gantt');return false;" class="button textual icon delete requireCanWrite" title="删除"><span class="teamworkIcon">&cent;</span></button>
       <span class="ganttButtonSeparator"></span>
-      <button onclick="$('#workSpace').trigger('expandAll.gantt');return false;" class="button textual icon " title="EXPAND_ALL"><span class="teamworkIcon">6</span></button>
-      <button onclick="$('#workSpace').trigger('collapseAll.gantt'); return false;" class="button textual icon " title="COLLAPSE_ALL"><span class="teamworkIcon">5</span></button>
+      <button onclick="$('#workSpace').trigger('expandAll.gantt');return false;" class="button textual icon " title="全部展开"><span class="teamworkIcon">6</span></button>
+      <button onclick="$('#workSpace').trigger('collapseAll.gantt'); return false;" class="button textual icon " title="全部折叠"><span class="teamworkIcon">5</span></button>
 
     <span class="ganttButtonSeparator"></span>
-      <button onclick="$('#workSpace').trigger('zoomMinus.gantt'); return false;" class="button textual icon " title="zoom out"><span class="teamworkIcon">)</span></button>
-      <button onclick="$('#workSpace').trigger('zoomPlus.gantt');return false;" class="button textual icon " title="zoom in"><span class="teamworkIcon">(</span></button>
+      <button onclick="$('#workSpace').trigger('zoomMinus.gantt'); return false;" class="button textual icon " title="缩小"><span class="teamworkIcon">)</span></button>
+      <button onclick="$('#workSpace').trigger('zoomPlus.gantt');return false;" class="button textual icon " title="放大"><span class="teamworkIcon">(</span></button>
+    <span style="display:none" class="ganttButtonSeparator"></span>
+      <button style="display:none" onclick="print();return false;" class="button textual icon " title="打印" style="display:none><span class="teamworkIcon" >p</span></button>
     <span class="ganttButtonSeparator"></span>
-      <button onclick="print();return false;" class="button textual icon " title="Print"><span class="teamworkIcon">p</span></button>
-    <span class="ganttButtonSeparator"></span>
-      <button onclick="ge.gantt.showCriticalPath=!ge.gantt.showCriticalPath; ge.redraw();return false;" class="button textual icon requireCanSeeCriticalPath" title="CRITICAL_PATH"><span class="teamworkIcon">&pound;</span></button>
-    <span class="ganttButtonSeparator requireCanSeeCriticalPath"></span>
-      <button onclick="ge.splitter.resize(.1);return false;" class="button textual icon" ><span class="teamworkIcon">F</span></button>
-      <button onclick="ge.splitter.resize(50);return false;" class="button textual icon" ><span class="teamworkIcon">O</span></button>
-      <button onclick="ge.splitter.resize(100);return false;" class="button textual icon"><span class="teamworkIcon">R</span></button>
+      <button style="display:none" style="display:none" onclick="ge.gantt.showCriticalPath=!ge.gantt.showCriticalPath; ge.redraw();return false;" class="button textual icon requireCanSeeCriticalPath" title="关键路线"><span class="teamworkIcon">&pound;</span></button>
+    <span  style="display:none" class="ganttButtonSeparator requireCanSeeCriticalPath"></span>
+      <button onclick="ge.splitter.resize(100);return false;" class="button textual icon" title="显示左侧" ><span class="teamworkIcon">R</span></button>
+      <button onclick="ge.splitter.resize(50);return false;" class="button textual icon" title="居中"><span class="teamworkIcon">O</span></button>
+      <button onclick="ge.splitter.resize(.1);return false;" class="button textual icon"title="显示右侧"><span class="teamworkIcon">F</span></button>
       <span class="ganttButtonSeparator"></span>
-      <button onclick="$('#workSpace').trigger('fullScreen.gantt');return false;" class="button textual icon" title="FULLSCREEN" id="fullscrbtn"><span class="teamworkIcon">@</span></button>
-      <button onclick="ge.element.toggleClass('colorByStatus' );return false;" class="button textual icon"><span class="teamworkIcon">&sect;</span></button>
+      <button style="display:none" onclick="$('#workSpace').trigger('fullScreen.gantt');return false;" class="button textual icon" title="全屏" id="fullscrbtn" ><span class="teamworkIcon">@</span></button>
+      <button style="display:none" onclick="ge.element.toggleClass('colorByStatus' );return false;" class="button textual icon"><span class="teamworkIcon">&sect;</span></button>
 
-    <button onclick="editResources();" class="button textual requireWrite" title="edit resources"><span class="teamworkIcon">M</span></button>
+    <button onclick="editResources();" class="button textual requireWrite" title="编辑 项目成员"><span class="teamworkIcon">M</span></button>
       &nbsp; &nbsp; &nbsp; &nbsp;
-    <button onclick="saveGanttOnServer();" class="button first big requireWrite" title="Save">保存</button>
-    <button onclick='newProject();' class='button requireWrite newproject'><em>clear project</em></button>
+    <button onclick="saveGanttOnServer();" class="button first big requireWrite" title="保存">保存</button>
+    <button onclick='newProject();' class='button requireWrite newproject'title="清空"><em>清空</em></button>
     <button class="button login" title="login/enroll" onclick="loginEnroll($(this));" style="display:none;">login/enroll</button>
     <button class="button opt collab" title="Start with Twproject" onclick="collaborate($(this));" style="display:none;"><em>collaborate</em></button>
     </div></div>
@@ -547,18 +526,18 @@ function editResources(){
   <table class="gdfTable" cellspacing="0" cellpadding="0">
     <thead>
     <tr style="height:40px">
-      <th class="gdfColHeader" style="width:35px; border-right: none">No.</th>
+      <th class="gdfColHeader" style="width:35px; border-right: none">序号</th>
       <th class="gdfColHeader" style="width:25px;"></th>
-      <th class="gdfColHeader gdfResizable" style="width:100px;">code/short name</th>
-      <th class="gdfColHeader gdfResizable" style="width:300px;">name</th>
+      <th style="display:none" class="gdfColHeader gdfResizable" style="width:100px;">编号</th>
+      <th class="gdfColHeader gdfResizable" style="width:300px;">名称</th>
       <th class="gdfColHeader"  align="center" style="width:17px;" title="Start date is a milestone."><span class="teamworkIcon" style="font-size: 8px;">^</span></th>
-      <th class="gdfColHeader gdfResizable" style="width:80px;">start</th>
+      <th class="gdfColHeader gdfResizable" style="width:80px;">开始</th>
       <th class="gdfColHeader"  align="center" style="width:17px;" title="End date is a milestone."><span class="teamworkIcon" style="font-size: 8px;">^</span></th>
-      <th class="gdfColHeader gdfResizable" style="width:80px;">End</th>
-      <th class="gdfColHeader gdfResizable" style="width:50px;">dur.</th>
-      <th class="gdfColHeader gdfResizable" style="width:20px;">%</th>
-      <th class="gdfColHeader gdfResizable requireCanSeeDep" style="width:50px;">depe.</th>
-      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">assignees</th>
+      <th class="gdfColHeader gdfResizable" style="width:80px;">结束</th>
+      <th class="gdfColHeader gdfResizable" style="width:50px;">天数</th>
+      <th class="gdfColHeader gdfResizable" style="width:20px;">完成度(%)</th>
+      <th style = "display:none" class="gdfColHeader gdfResizable requireCanSeeDep" style="width:50px;">depe.</th>
+      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">责任人</th>
     </tr>
     </thead>
   </table>
@@ -568,7 +547,7 @@ function editResources(){
   <tr taskId="(#=obj.id#)" class="taskEditRow (#=obj.isParent()?'isParent':''#) (#=obj.collapsed?'collapsed':''#)" level="(#=level#)">
     <th class="gdfCell edit" align="right" style="cursor:pointer;"><span class="taskRowIndex">(#=obj.getRow()+1#)</span> <span class="teamworkIcon" style="font-size:12px;" >e</span></th>
     <td class="gdfCell noClip" align="center"><div class="taskStatus cvcColorSquare" status="(#=obj.status#)"></div></td>
-    <td class="gdfCell"><input type="text" name="code" value="(#=obj.code?obj.code:''#)" placeholder="code/short name"></td>
+    <td style="display:none" class="gdfCell"><input type="text" name="code" value="(#=obj.code?obj.code:''#)" placeholder="编号"></td>
     <td class="gdfCell indentCell" style="padding-left:(#=obj.level*10+18#)px;">
       <div class="exp-controller" align="center"></div>
       <input type="text" name="name" value="(#=obj.name#)" placeholder="name">
@@ -579,7 +558,7 @@ function editResources(){
     <td class="gdfCell"><input type="text" name="end" value="" class="date"></td>
     <td class="gdfCell"><input type="text" name="duration" autocomplete="off" value="(#=obj.duration#)"></td>
     <td class="gdfCell"><input type="text" name="progress" class="validated" entrytype="PERCENTILE" autocomplete="off" value="(#=obj.progress?obj.progress:''#)" (#=obj.progressByWorklog?"readOnly":""#)></td>
-    <td class="gdfCell requireCanSeeDep"><input type="text" name="depends" autocomplete="off" value="(#=obj.depends#)" (#=obj.hasExternalDep?"readonly":""#)></td>
+    <td style = "display:none" class="gdfCell requireCanSeeDep"><input type="text" name="depends" autocomplete="off" value="(#=obj.depends#)" (#=obj.hasExternalDep?"readonly":""#)></td>
     <td class="gdfCell taskAssigs">(#=obj.getAssigsString()#)</td>
   </tr>
   --></div>
@@ -617,11 +596,11 @@ function editResources(){
 
 <div class="__template__" type="CHANGE_STATUS"><!--
     <div class="taskStatusBox">
-      <div class="taskStatus cvcColorSquare" status="STATUS_ACTIVE" title="active"></div>
-      <div class="taskStatus cvcColorSquare" status="STATUS_DONE" title="completed"></div>
-      <div class="taskStatus cvcColorSquare" status="STATUS_FAILED" title="failed"></div>
-      <div class="taskStatus cvcColorSquare" status="STATUS_SUSPENDED" title="suspended"></div>
-      <div class="taskStatus cvcColorSquare" status="STATUS_UNDEFINED" title="undefined"></div>
+    <div class="taskStatus cvcColorSquare" status="STATUS_SUSPENDED" title="未开始"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_ACTIVE" title="完成部分"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_DONE" title="完成"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_FAILED" title="失败"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_UNDEFINED" title="未定义"></div>
     </div>
   --></div>
 
@@ -631,33 +610,33 @@ function editResources(){
 
 <div class="__template__" type="TASK_EDITOR"><!--
   <div class="ganttTaskEditor">
-    <h2 class="taskData">Task editor</h2>
+    <h2 class="taskData">任务编辑</h2>
     <table  cellspacing="1" cellpadding="5" width="100%" class="taskData table" border="0">
           <tr>
-        <td width="200" style="height: 80px"  valign="top">
-          <label for="code">code/short name</label><br>
+        <td style="display:none" width="200" style="height: 80px"  valign="top">
+          <label for="code">编号</label><br>
           <input type="text" name="code" id="code" value="" size=15 class="formElements" autocomplete='off' maxlength=255 style='width:100%' oldvalue="1">
         </td>
-        <td colspan="3" valign="top"><label for="name" class="required">name</label><br><input type="text" name="name" id="name"class="formElements" autocomplete='off' maxlength=255 style='width:100%' value="" required="true" oldvalue="1"></td>
+        <td colspan="3" valign="top"><label for="name" class="required">名称</label><br><input type="text" name="name" id="name"class="formElements" autocomplete='off' maxlength=255 style='width:100%' value="" required="true" oldvalue="1"></td>
           </tr>
 
 
       <tr class="dateRow">
         <td nowrap="">
           <div style="position:relative">
-            <label for="start">start</label>&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" id="startIsMilestone" name="startIsMilestone" value="yes"> &nbsp;<label for="startIsMilestone">is milestone</label>&nbsp;
+            <label for="start">开始</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="startIsMilestone" name="startIsMilestone" value="yes"> &nbsp;<label for="startIsMilestone">里程碑</label>&nbsp;
             <br><input type="text" name="start" id="start" size="8" class="formElements dateField validated date" autocomplete="off" maxlength="255" value="" oldvalue="1" entrytype="DATE">
             <span title="calendar" id="starts_inputDate" class="teamworkIcon openCalendar" onclick="$(this).dateField({inputField:$(this).prevAll(':input:first'),isSearchField:false});">m</span>          </div>
         </td>
         <td nowrap="">
-          <label for="end">End</label>&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" id="endIsMilestone" name="endIsMilestone" value="yes"> &nbsp;<label for="endIsMilestone">is milestone</label>&nbsp;
+          <label for="end">结束</label>&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" id="endIsMilestone" name="endIsMilestone" value="yes"> &nbsp;<label for="endIsMilestone">里程碑</label>&nbsp;
           <br><input type="text" name="end" id="end" size="8" class="formElements dateField validated date" autocomplete="off" maxlength="255" value="" oldvalue="1" entrytype="DATE">
           <span title="calendar" id="ends_inputDate" class="teamworkIcon openCalendar" onclick="$(this).dateField({inputField:$(this).prevAll(':input:first'),isSearchField:false});">m</span>
         </td>
         <td nowrap="" >
-          <label for="duration" class=" ">Days</label><br>
+          <label for="duration" class=" ">天数</label><br>
           <input type="text" name="duration" id="duration" size="4" class="formElements validated durationdays" title="Duration is in working days." autocomplete="off" maxlength="255" value="" oldvalue="1" entrytype="DURATIONDAYS">&nbsp;
         </td>
       </tr>
@@ -666,16 +645,16 @@ function editResources(){
         <td  colspan="2">
           <label for="status" class=" ">status</label><br>
           <select id="status" name="status" class="taskStatus" status="(#=obj.status#)"  onchange="$(this).attr('STATUS',$(this).val());">
-            <option value="STATUS_ACTIVE" class="taskStatus" status="STATUS_ACTIVE" >active</option>
-            <option value="STATUS_SUSPENDED" class="taskStatus" status="STATUS_SUSPENDED" >suspended</option>
-            <option value="STATUS_DONE" class="taskStatus" status="STATUS_DONE" >completed</option>
-            <option value="STATUS_FAILED" class="taskStatus" status="STATUS_FAILED" >failed</option>
-            <option value="STATUS_UNDEFINED" class="taskStatus" status="STATUS_UNDEFINED" >undefined</option>
+            <option value="STATUS_SUSPENDED" class="taskStatus" status="STATUS_SUSPENDED" >未开始</option>
+            <option value="STATUS_ACTIVE" class="taskStatus" status="STATUS_ACTIVE" >进行中</option>
+            <option value="STATUS_DONE" class="taskStatus" status="STATUS_DONE" >完成</option>
+            <option value="STATUS_FAILED" class="taskStatus" status="STATUS_FAILED" >失败</option>
+            <option value="STATUS_UNDEFINED" class="taskStatus" status="STATUS_UNDEFINED" >未定义</option>
           </select>
         </td>
 
         <td valign="top" nowrap>
-          <label>progress</label><br>
+          <label>完成度%</label><br>
           <input type="text" name="progress" id="progress" size="7" class="formElements validated percentile" autocomplete="off" maxlength="255" value="" oldvalue="1" entrytype="PERCENTILE">
         </td>
       </tr>
@@ -683,24 +662,24 @@ function editResources(){
           </tr>
           <tr>
             <td colspan="4">
-              <label for="description">Description</label><br>
+              <label for="description">描述</label><br>
               <textarea rows="3" cols="30" id="description" name="description" class="formElements" style="width:100%"></textarea>
             </td>
           </tr>
         </table>
 
-    <h2>Assignments</h2>
+    <h2>任务分配</h2>
   <table  cellspacing="1" cellpadding="0" width="100%" id="assigsTable">
     <tr>
-      <th style="width:100px;">name</th>
-      <th style="width:70px;">Role</th>
-      <th style="width:30px;">est.wklg.</th>
+      <th style="width:100px;">姓名</th>
+      <th style="width:70px;">角色</th>
+      <th style="width:30px;">估计工作时间</th>
       <th style="width:30px;" id="addAssig"><span class="teamworkIcon" style="cursor: pointer">+</span></th>
     </tr>
   </table>
 
   <div style="text-align: right; padding-top: 20px">
-    <span id="saveButton" class="button first" onClick="$(this).trigger('saveFullEditor.gantt');">Save</span>
+    <span id="saveButton" class="button first" onClick="$(this).trigger('saveFullEditor.gantt');">保存</span>
   </div>
 
   </div>
@@ -722,15 +701,14 @@ function editResources(){
 <div class="__template__" type="RESOURCE_EDITOR"><!--
   <div class="resourceEditor" style="padding: 5 px;">
 
-    <h2>Project team</h2>
+    <h2>项目成员</h2>
     <table  cellspacing="1" cellpadding="0" width="100%" id="resourcesTable">
       <tr>
-        <th style="width:100px;">name</th>
+        <th style="width:100px;">姓名</th>
         <th style="width:30px;" id="addResource"><span class="teamworkIcon" style="cursor: pointer">+</span></th>
       </tr>
     </table>
-
-    <div style="text-align: right; padding-top: 20px"><button id="resSaveButton" class="button big">Save</button></div>
+    <div style="text-align: right; padding-top: 20px"><button id="resSaveButton" class="button big">保存</button></div>
   </div>
   --></div>
 
@@ -748,8 +726,8 @@ function editResources(){
 <script type="text/javascript">
   $.JST.loadDecorator("RESOURCE_ROW", function(resTr, res){
 	resTr.find(".delRes").click(function(){
-		 alert($(this).closest("tr").find("input").val());
-		 alert($(this).closest("tr").find("tr").val()+'724');
+		 //alert($(this).closest("tr").find("input").val());
+		 //alert($(this).closest("tr").find("tr").val()+'724');
 		$(this).closest("tr").remove()
 	});
     //resTr.find(".delRess").click(function(){
@@ -788,7 +766,25 @@ function editResources(){
 
 
   function loadI18n(){
-    GanttMaster.messages = {
+	  GanttMaster.messages = {
+	  "CANNOT_WRITE": "不能编辑",
+	  "CHANGE_OUT_OF_SCOPE": "没有超出编辑范围更新父级的权限",
+	  "START_IS_MILESTONE": "超出时间",
+	  "END_IS_MILESTONE": "超出终止时间",
+	  "TASK_HAS_CONSTRAINTS": "任务包含约束",
+	  "GANTT_ERROR_DEPENDS_ON_OPEN_TASK": "错误：特定于开放的任务",
+	  "GANTT_ERROR_DESCENDANT_OF_CLOSED_TASK": "错误：衍生于关闭的任务",
+	  "TASK_HAS_EXTERNAL_DEPS": "任务包含外部依赖",
+	  "GANTT_ERROR_LOADING_DATA_TASK_REMOVED": "错误：加载被删除的任务",
+	  "ERROR_SETTING_DATES": "日期时间设置错误（依赖时间关系或父级任务工期）",
+	  "CIRCULAR_REFERENCE": "有无限循环参照",
+	  "CANNOT_DEPENDS_ON_ANCESTORS": "不能依赖父级任务",
+	  "CANNOT_DEPENDS_ON_DESCENDANTS": "不能依赖子级任务",
+	  "INVALID_DATE_FORMAT":"无效日期格式",
+	  "TASK_MOVE_INCONSISTENT_LEVEL": "任务移动非连续级别",
+	  "GANTT_QUARTER_SHORT": "trim.",
+	  "GANTT_SEMESTER_SHORT":"sem." };
+   /*  GanttMaster.messages = {
       "CANNOT_WRITE":"No permission to change the following task:",
       "CHANGE_OUT_OF_SCOPE":"Project update not possible as you lack rights for updating a parent project.",
       "START_IS_MILESTONE":"Start date is a milestone.",
@@ -808,7 +804,7 @@ function editResources(){
       "GANTT_SEMESTER_SHORT":"Sem",
       "CANNOT_MOVE_TASK":"CANNOT_MOVE_TASK",
       "PLEASE_SAVE_PROJECT":"PLEASE_SAVE_PROJECT"
-    };
+    }; */
   }
 
 

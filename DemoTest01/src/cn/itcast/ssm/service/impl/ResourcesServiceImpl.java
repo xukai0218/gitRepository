@@ -59,6 +59,24 @@ public class ResourcesServiceImpl implements ResourcesService{
 		 resourceMapper.updateResources(resources);
 	}
 
+	@Override
+	public int selResourcesCount() throws Exception {
+		// TODO 自动生成的方法存根
+		return resourceMapper.selResourcesCount();
+	}
+
+	@Override
+	public void delResourcesCount(int id) throws Exception {
+		// TODO 自动生成的方法存根
+		resourceMapper.delResourcesCount(id);
+	}
+
+	@Override
+	public void insertResources(List resourcesList) throws Exception {
+		// TODO 自动生成的方法存根
+		resourceMapper.insertResources(resourcesList);
+	}
+
 
 
 

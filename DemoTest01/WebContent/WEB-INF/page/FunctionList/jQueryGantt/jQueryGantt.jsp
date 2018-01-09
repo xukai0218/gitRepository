@@ -265,7 +265,8 @@ function loadI18n() {
   };
 }
   */
-  function loadI18n() { GanttMaster.messages = {
+  function loadI18n() { 
+	  GanttMaster.messages = {
   "CANNOT_WRITE": "不能编辑",
   "CHANGE_OUT_OF_SCOPE": "没有超出编辑范围更新父级的权限",
   "START_IS_MILESTONE": "开始是里程碑",

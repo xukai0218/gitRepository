@@ -464,11 +464,11 @@ input[readonly]{
   cursor: pointer;
 }
 .taskStatus[status=STATUS_ACTIVE]{
-  background-color: #3BBF67;
+  background-color: #efdc46;
   color: #fff;
 }
 .taskStatus[status=STATUS_DONE]{
-  background-color: #6EBEF4;
+  background-color: #02df12;
   color:#000;
 }
 .taskStatus[status=STATUS_FAILED]{
@@ -476,7 +476,7 @@ input[readonly]{
   color: #fff;
 }
 .taskStatus[status=STATUS_SUSPENDED]{
-  background-color: #F9C154;
+  background-color: #f9031e;
   color:#000;
 }
 .taskStatus[status=STATUS_UNDEFINED]{
@@ -592,16 +592,16 @@ select.taskStatus{
 }
 
 .colorByStatus .taskStatusSVG[status=STATUS_ACTIVE]{
-  fill: #3BBF67;
+  fill: #efdc46;
 }
 .colorByStatus .taskStatusSVG[status=STATUS_DONE]{
-  fill: #6EBEF4;
+  fill: #02df12;
 }
 .colorByStatus .taskStatusSVG[status=STATUS_FAILED]{
   fill: #763A96;
 }
 .colorByStatus .taskStatusSVG[status=STATUS_SUSPENDED]{
-  fill: #f9c154;
+  fill: #f9031e;
 }
 .colorByStatus .taskStatusSVG[status=STATUS_UNDEFINED]{
   fill: #dededf;

@@ -23,5 +23,11 @@ public interface ResourcesMapper {
 	public Resources selResourcesByid(int id)throws Exception;
 	
 	public void updateResources(Resources resources)throws Exception;
+	
+	public int selResourcesCount() throws Exception;
+	
+	public void delResourcesCount(int id)throws Exception;
+	
+	public void insertResources(List resourcesList)throws Exception;
 
 }

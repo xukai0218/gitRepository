@@ -2,9 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itcast.ssm.mapper.ResourcesMapper" >
 
-  <select id="selectAllResources" resultType="cn.itcast.ssm.po.Resources"  >
+  <select id="selectAllResources" resultMap="ResourcesMap"  >
 		select * from Resources
   </select>
+  
+  <select id="selResourcesCount" resultType="int">
+  			select count(*) from Resources
+  </select>
+  
+  <delete id="delResourcesCount" parameterType="int">
+  			delete from resources where 1=1 limit #{id}
+  </delete>
+  
+  <insert id="insertResources" parameterType="java.util.List">
+  		insert into resources (resources_id, name) values 
+   			 
+    <if test="list!=null">
+		<foreach collection="list" item="item" index="index" separator="," >  
+		
+    		(#{item.id}, #{item.name})
+    		
+ 		 </foreach>	
+	</if>
+  </insert>
   
   <insert id="addResources" parameterType="cn.itcast.ssm.po.Resources">
   	insert into resources (id, name)
@@ -20,4 +40,11 @@
   <update id="updateResources" parameterType="cn.itcast.ssm.po.Resources" >
   		update Resources set name=#{name} where id=#{id}
   </update>
+  
+  
+  <resultMap type="cn.itcast.ssm.po.Resources" id="ResourcesMap">
+  		<id column="resources_id" property="id"/>
+		<result column="name" property="name"/>
+  </resultMap>
+  
 </mapper>

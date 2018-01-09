@@ -33,8 +33,9 @@
     </head>
 
     <body>
-    <a href="jQueryGantt/gantt.html"><p>JQueryGantt.html</p></a>
-    
+    <form method="get">
+    		<a href="jQueryGantt/gantt.html?name=a"><p>JQueryGantt.html</p></a>
+    </form>
     
 <!--     隐藏域
      <input type="hidden"  id = "hidden" value=${ctx}/>

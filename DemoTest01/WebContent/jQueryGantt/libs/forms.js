@@ -564,8 +564,9 @@ function limitSize(ob) {
 
 function alertOnUnload(container) {
   //console.debug("alertOnUnload",container,muteAlertOnChange);
-  if (!muteAlertOnChange) {
-
+  //关闭窗口提醒 取消
+  //if (!muteAlertOnChange) {
+  if (muteAlertOnChange) {
     //first try to call a function eventually defined on the page
     if (typeof(managePageUnload) == "function")
       managePageUnload();
