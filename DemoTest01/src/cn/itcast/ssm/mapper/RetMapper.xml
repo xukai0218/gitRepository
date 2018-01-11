@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itcast.ssm.mapper.RetMapper" >
-	<select id="selectRet"  resultType="cn.itcast.ssm.po.Ret">
+	
+	<select id="selectRetByProjectId"  parameterType="String" resultType="cn.itcast.ssm.po.Ret">
+		select * from ret where projectId=#{projectId}
+	</select>
+	
+	 <insert id="insertRetByProId" parameterType="String">
+  		insert into ret (projectId,canWrite,canDelete,zoom) values
+  						(#{projectId},true,true,'w3')
+  	</insert>
+  	
+  	<delete id="delRetByProId" parameterType="String"> 
+		delete from ret where projectId = #{projectId}
+	</delete>
+	
+	
+	
+	
+	<!-- <select id="selectRet"  resultType="cn.itcast.ssm.po.Ret">
 		select * from ret
 	</select>
 	
@@ -48,9 +65,8 @@
 			assignment
 		WHERE
 			ret.projectName = #{name}
-		<!-- AND tasks.assigs=assignment.taskId -->
+		AND tasks.assigs=assignment.taskId
   </select>
-  
 
   <resultMap type="cn.itcast.ssm.po.Ret" id="Ret">
   		<result column="selectRow" property="selectRow"/>
@@ -91,14 +107,12 @@
 		
 		</collection>
 		
-		
-		
-	<!-- 	<collection property="assigs" ofType="cn.itcast.ssm.po.Assignment">
+		<collection property="assigs" ofType="cn.itcast.ssm.po.Assignment">
 			<id column="assid" property="id"/>
 			<result column="resourceId" property="resourceId"/>
 			<result column="roleId" property="roleId"/>
 			<result column="effort" property="effort"/>
-		</collection> -->
+		</collection>
 		
-  </resultMap>
+  </resultMap> -->
 </mapper>

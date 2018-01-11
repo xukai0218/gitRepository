@@ -20,7 +20,44 @@ public class TasksServiceImpl implements TasksService{
 	@Autowired
 	TasksMapper tasksMapper;
 
+
 	@Override
+	public List<String> getAssigsByProjectId(String projectId) throws Exception {
+		// TODO 自动生成的方法存根
+		return tasksMapper.getAssigsByProjectId(projectId);
+	}
+	
+	@Override
+	public List<Tasks> selectTasksByProjectId(String projectId) throws Exception {
+		// TODO 自动生成的方法存根
+		return tasksMapper.selectTasksByProjectId(projectId);
+	}
+	
+	@Override
+	public int getTasksCountByProId(String projectId) throws Exception {
+		// TODO 自动生成的方法存根
+		return tasksMapper.getTasksCountByProId(projectId);
+	}
+	
+	@Override
+	public void insertTasksBatch(List tasksVoList) throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.insertTasksBatch(tasksVoList);
+	}
+	
+	@Override
+	public void delTasksCount(TasksVo tasksVo) throws Exception {
+		// TODO 自动生成的方法存根
+		tasksMapper.delTasksCount(tasksVo);
+	}
+
+
+
+
+
+	
+	
+/*	@Override
 	public List<Tasks> selectAllTasks() throws Exception {
 
 		return tasksMapper.selectAllTasks();
@@ -56,11 +93,11 @@ public class TasksServiceImpl implements TasksService{
 		tasksMapper.insertTasks(tasksVo);
 	}
 
-/*	@Override
+	@Override
 	public String getTasksById(String taskId) throws Exception {
 		
 		return tasksMapper.getTasksById(taskId);
-	}*/
+	}
 
 	@Override
 	public void delTasksById(String taskId) throws Exception {
@@ -117,24 +154,11 @@ public class TasksServiceImpl implements TasksService{
 		tasksMapper.delTasks();
 	}
 
-	@Override
-	public void insertTasksBatch(List tasksVoList) throws Exception {
-		// TODO 自动生成的方法存根
-		tasksMapper.insertTasksBatch(tasksVoList);
-	}
 
 	@Override
 	public int getTasksCount() throws Exception {
 		// TODO 自动生成的方法存根
 		return tasksMapper.getTasksCount();
 	}
-
-	@Override
-	public void delTasksCount(int count) throws Exception {
-		// TODO 自动生成的方法存根
-		tasksMapper.delTasksCount(count);
-	}
-	
-
-
+*/
 }

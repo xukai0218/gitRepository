@@ -62,7 +62,7 @@ public class ResoursController {
 				resourcesList.get(i).setId(i+1);
 			}
 			try {
-				resources.insertResources(resourcesList);
+				resources.insertResourcesBatch(resourcesList);
 			} catch (Exception e) {
 				// TODO 自动生成的 catch 块
 				isDel = false;

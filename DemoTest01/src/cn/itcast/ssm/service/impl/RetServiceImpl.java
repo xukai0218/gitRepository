@@ -22,7 +22,7 @@ public class RetServiceImpl implements RetService{
 	private RetMapper retMapper;
 
 
-	@Override
+/*	@Override
 	public Ret selectAllRet(String projectName) throws Exception {
 		// TODO 自动生成的方法存根
 		return retMapper.selectAllRet(projectName);
@@ -33,6 +33,27 @@ public class RetServiceImpl implements RetService{
 	public Ret selectRet() throws Exception {
 		// TODO 自动生成的方法存根
 		return retMapper.selectRet();
+	}
+*/
+
+	@Override
+	public Ret selectRetByProjectId(String projectId) throws Exception {
+		// TODO 自动生成的方法存根
+		return retMapper.selectRetByProjectId(projectId);
+	}
+
+
+	@Override
+	public void insertRetByProId(String projectId) throws Exception {
+		// TODO 自动生成的方法存根
+		retMapper.insertRetByProId(projectId);
+	}
+
+
+	@Override
+	public void delRetByProId(String projectId) throws Exception {
+		// TODO 自动生成的方法存根
+		retMapper.delRetByProId(projectId);
 	}
 
 	

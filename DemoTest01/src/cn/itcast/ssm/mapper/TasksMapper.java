@@ -13,6 +13,17 @@ import cn.itcast.ssm.po.TasksVo;
 *
 */
 public interface TasksMapper {
+	//通过项目Id找到得到 assign字段的 list集合
+	public List<String> getAssigsByProjectId(String projectId) throws Exception;
+	//通过项目Id找到得到 相应任务集合
+	public List<Tasks> selectTasksByProjectId(String projectId) throws Exception;
+	//通过项目Id得到 相应任务数
+	public int getTasksCountByProId(String projectId) throws Exception;
+	//通过项目Id批量插入任务
+	public void insertTasksBatch(List tasksVoList) throws Exception;
+	//通过项目Id 任务数量 删除 未插入前记录
+	public void delTasksCount(TasksVo tasksVo) throws Exception;
+/*	
 	//查询所有任务
 	public List<Tasks> selectAllTasks() throws Exception;
 	
@@ -36,8 +47,6 @@ public interface TasksMapper {
 	
 	public void insertTasksNew(TasksVo tasksVo) throws Exception;
 	
-	public void insertTasksBatch(List tasksVoList) throws Exception;
-	
 	public void updateTasks(TasksVo tasksVo) throws Exception;
 	
 	public void updateTasksNew(TasksVo tasksVo) throws Exception;
@@ -47,6 +56,5 @@ public interface TasksMapper {
 	public void delTasksById(String taskId) throws Exception;
 	
 	public void delTasks() throws Exception;
-	
-	public void delTasksCount(int count) throws Exception;
+	*/
 }

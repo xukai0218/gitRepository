@@ -33,8 +33,13 @@
     </head>
 
     <body>
-    <form method="get">
-    		<a href="jQueryGantt/gantt.html?name=a"><p>JQueryGantt.html</p></a>
+    <a href="jQueryGantt/gantt.html?projectId=1"><p>JQueryGantt1.html</p></a>
+    <a href="jQueryGantt/gantt.html?projectId=2"><p>JQueryGantt2.html</p></a>
+    <a href="jQueryGantt/gantt.html?projectId=3"><p>JQueryGantt3.html</p></a>
+    <a href="jQueryGantt/gantt.html?projectId=4"><p>JQueryGantt4.html</p></a>
+    <a href="FunctionList/baiduEditor.do"><p>baiduEditor.jsp</p></a>
+    <form method="post">
+    		
     </form>
     
 <!--     隐藏域

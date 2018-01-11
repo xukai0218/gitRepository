@@ -16,21 +16,34 @@ public class TasksVo {
 	private Tasks tasks;
 	private List<Integer> assigsIdList = new ArrayList<Integer>();
 	private String assigsIds;
-	private String projectName;//项目名
+	private String projectId;//项目名
 	private String assigsJson;//责任人String json格式
+	private int tasksCount;
 	
+	public String getProjectId() {
+		return projectId;
+	}
+
+	public int getTasksCount() {
+		return tasksCount;
+	}
+
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
+
+	public void setTasksCount(int tasksCount) {
+		this.tasksCount = tasksCount;
+	}
+
 	public Tasks getTasks() {
 		return tasks;
 	}
-	public String getProjectName() {
-		return projectName;
-	}
+	
 	public String getAssigsJson() {
 		return assigsJson;
 	}
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
+	
 	public void setAssigsJson(String assigsJson) {
 		this.assigsJson = assigsJson;
 	}

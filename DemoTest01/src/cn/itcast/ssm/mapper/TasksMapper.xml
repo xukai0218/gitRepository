@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.itcast.ssm.mapper.TasksMapper" >
-<!--  	<select id="selectAllTasks" resultType="cn.itcast.ssm.po.Tasks"  >
+
+ 	<select id="getAssigsByProjectId"  resultType="String" >
+  		select assigs from tasks where projectId = #{projectId}
+  	</select>
+  
+    <select id="selectTasksByProjectId" parameterType="String"  resultMap="selectAllTasksMap"  >
+			SELECT * FROM tasks where projectId =#{projectId}
+  	</select>
+  
+    <select id="getTasksCountByProId" parameterType="String" resultType="int" >
+  		select COUNT(*) from tasks where projectId=#{projectId}
+  	</select>
+
+		<!--批量插入  -->
+ 	<insert id="insertTasksBatch" parameterType="java.util.List">
+  		insert into  tasks (
+  			tasks_Id,
+  			projectId,
+			name,
+			progress,
+			progressByWorklog,
+			relevance,
+			type,
+			typeId,
+			description,
+			code,
+			status,
+			level,
+			canWrite,
+			start,
+			duration,
+			end,
+			endIsMilestone,
+			startIsMilestone,
+			collapsed,
+			hasChild,
+			depends,
+			assigs)
+					 values 
+		<if test="list!=null">
+			<foreach collection="list" item="item" index="index" separator="," >  
+					 
+				( 	#{item.tasks.id},
+					#{item.projectId},
+					#{item.tasks.name},
+					#{item.tasks.progress},
+					#{item.tasks.progressByWorklog},
+					#{item.tasks.relevance},
+					#{item.tasks.type},
+					#{item.tasks.typeId},
+					#{item.tasks.description},
+					#{item.tasks.code},
+					#{item.tasks.status},
+					#{item.tasks.level},
+					#{item.tasks.canWrite},
+					#{item.tasks.start},
+					#{item.tasks.duration},
+					#{item.tasks.end},
+					#{item.tasks.endIsMilestone},
+					#{item.tasks.startIsMilestone},
+					#{item.tasks.collapsed},
+					#{item.tasks.hasChild},
+					#{item.tasks.depends},
+					#{item.assigsJson} )
+			</foreach>	
+		</if>
+  </insert>
+
+	<delete id="delTasksCount" parameterType="cn.itcast.ssm.po.TasksVo" >
+  				delete from tasks where projectId=#{projectId} limit #{tasksCount}
+ 	</delete>
+ 	
+ 	
+ 	<resultMap type="cn.itcast.ssm.po.Tasks" id="selectAllTasksMap">
+		<id column="tasks_Id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="progress" property="progress"/>
+		<result column="progressByWorklog" property="progressByWorklog"/>
+		<result column="relevance" property="relevance"/>
+		<result column="type" property="type"/>
+		<result column="typeId" property="typeId"/>
+		<result column="description" property="description"/>
+		<result column="code" property="code"/>
+		<result column="level" property="level"/>
+		<result column="status" property="status"/>
+		<result column="depends" property="depends"/>
+		<result column="canWrite" property="canWrite"/>
+		<result column="start" property="start"/>
+		<result column="duration" property="duration"/>
+		<result column="end" property="end"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="endIsMilestone" property="endIsMilestone"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="collapsed" property="collapsed"/>
+		<result column="hasChild" property="hasChild"/>
+</resultMap>  
+ 	
+<!-- 
+  	<select id="selectAllTasks" resultType="cn.itcast.ssm.po.Tasks"  >
 		select * from tasks 
-  </select> -->
+  </select> 
   
   	<select id="selectAllTasksResultMap" resultMap="selectAllTasksResultMap"  >
 			SELECT
@@ -24,6 +122,8 @@
 				
   </select>
   
+  
+  
   <select id="getAssigsId" parameterType="cn.itcast.ssm.po.Tasks" resultType="String">
   		SELECT
 			t.assigs
@@ -32,6 +132,8 @@
 		WHERE
 			t.id = #{id}
   </select>
+  
+ 
   
    <select id="getAssigsJsonNew"  resultType="String" >
   	select assigs from tasks 
@@ -46,6 +148,8 @@
    <select id="getTasksCount"  resultType="int" >
   		select COUNT(*) from tasks
   </select>
+  
+  
   
   
   <select id="getTasksById" parameterType="String" resultType="String" >
@@ -184,57 +288,7 @@
 					)
   </insert>
   
-  <insert id="insertTasksBatch" parameterType="java.util.List">
-  		insert into  tasks (
-  			tasks_Id,
-  			projectName,
-			name,
-			progress,
-			progressByWorklog,
-			relevance,
-			type,
-			typeId,
-			description,
-			code,
-			status,
-			level,
-			canWrite,
-			start,
-			duration,
-			end,
-			endIsMilestone,
-			startIsMilestone,
-			collapsed,
-			hasChild,
-			assigs)
-					 values 
-		<if test="list!=null">
-			<foreach collection="list" item="item" index="index" separator="," >  
-					 
-				( 	#{item.tasks.id},
-					#{item.projectName},
-					#{item.tasks.name},
-					#{item.tasks.progress},
-					#{item.tasks.progressByWorklog},
-					#{item.tasks.relevance},
-					#{item.tasks.type},
-					#{item.tasks.typeId},
-					#{item.tasks.description},
-					#{item.tasks.code},
-					#{item.tasks.status},
-					#{item.tasks.level},
-					#{item.tasks.canWrite},
-					#{item.tasks.start},
-					#{item.tasks.duration},
-					#{item.tasks.end},
-					#{item.tasks.endIsMilestone},
-					#{item.tasks.startIsMilestone},
-					#{item.tasks.collapsed},
-					#{item.tasks.hasChild},
-					#{item.assigsJson} )
-			</foreach>	
-		</if>
-  </insert>
+ 
   
   <delete id="delTasksById" parameterType="String" >
   				delete from Tasks where tasks_Id = #{id}
@@ -249,9 +303,7 @@
   				delete from Tasks
   </delete>
   
-   <delete id="delTasksCount" parameterType="int" >
-  				delete from tasks where 1=1 limit #{id}
- 	 </delete>
+    
 
    	<select id="selectTasksResultMap" parameterType="cn.itcast.ssm.po.TasksVo" resultMap="selectAllTasksResultMap"  >
    	
@@ -264,9 +316,9 @@
 			FROM
 				tasks t,
 				assignment a
-	<!-- 		where	
+			where	
 					t.id = 1
-				AND a.id IN (   1, 2) -->
+				AND a.id IN (   1, 2)
 			 <where>
 					<include refid="tasks"></include>
 			</where> 
@@ -306,7 +358,7 @@
 				and t.id = #{tasks.id}
 			</if>
 		<if test="assigsIdList!=null">
-			<!-- 实现  “ and id IN(1,10,16)”拼接 -->
+			实现  “ and id IN(1,10,16)”拼接
 			<foreach collection="assigsIdList" item="assigs_id" open="and a.id IN(" close=")" separator=",">
 				 #{assigs_id}
 			</foreach> 
@@ -314,36 +366,7 @@
 		</if>
 	</sql>
 
-<resultMap type="cn.itcast.ssm.po.Tasks" id="selectAllTasksMap">
-		<id column="tasks_Id" property="id"/>
-		<result column="name" property="name"/>
-		<result column="progress" property="progress"/>
-		<result column="progressByWorklog" property="progressByWorklog"/>
-		<result column="relevance" property="relevance"/>
-		<result column="type" property="type"/>
-		<result column="typeId" property="typeId"/>
-		<result column="description" property="description"/>
-		<result column="code" property="code"/>
-		<result column="level" property="level"/>
-		<result column="status" property="status"/>
-		<result column="depends" property="depends"/>
-		<result column="canWrite" property="canWrite"/>
-		<result column="start" property="start"/>
-		<result column="duration" property="duration"/>
-		<result column="end" property="end"/>
-		<result column="startIsMilestone" property="startIsMilestone"/>
-		<result column="endIsMilestone" property="endIsMilestone"/>
-		<result column="startIsMilestone" property="startIsMilestone"/>
-		<result column="collapsed" property="collapsed"/>
-		<result column="hasChild" property="hasChild"/>
-		
-		<collection property="assigs" ofType="cn.itcast.ssm.po.Assignment">
-			<id column="assid" property="id"/>
-			<result column="resourceId" property="resourceId"/>
-			<result column="roleId" property="roleId"/>
-			<result column="effort" property="effort"/>
-		</collection>
-</resultMap>  
+
   
   
   
@@ -378,5 +401,5 @@
 		</collection>
 </resultMap>  
 
-
+ -->
 </mapper>

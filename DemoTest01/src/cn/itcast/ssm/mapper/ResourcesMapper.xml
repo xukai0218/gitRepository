@@ -14,7 +14,7 @@
   			delete from resources where 1=1 limit #{id}
   </delete>
   
-  <insert id="insertResources" parameterType="java.util.List">
+  <insert id="insertResourcesBatch" parameterType="java.util.List">
   		insert into resources (resources_id, name) values 
    			 
     <if test="list!=null">
@@ -25,7 +25,13 @@
  		 </foreach>	
 	</if>
   </insert>
-  
+ 
+   <resultMap type="cn.itcast.ssm.po.Resources" id="ResourcesMap">
+  		<id column="resources_id" property="id"/>
+		<result column="name" property="name"/>
+  </resultMap>
+
+<!--   
   <insert id="addResources" parameterType="cn.itcast.ssm.po.Resources">
   	insert into resources (id, name)
   	
@@ -40,11 +46,8 @@
   <update id="updateResources" parameterType="cn.itcast.ssm.po.Resources" >
   		update Resources set name=#{name} where id=#{id}
   </update>
+   -->
   
-  
-  <resultMap type="cn.itcast.ssm.po.Resources" id="ResourcesMap">
-  		<id column="resources_id" property="id"/>
-		<result column="name" property="name"/>
-  </resultMap>
+
   
 </mapper>

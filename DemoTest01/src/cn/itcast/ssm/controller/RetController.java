@@ -1,11 +1,11 @@
 package cn.itcast.ssm.controller;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,23 +49,60 @@ public class RetController {
 
 	@RequestMapping("/selRetAll")
 	@ResponseBody
-	public Ret getRetAll() throws Exception {
-		Ret ret = retService.selectRet();
+	public Ret getRetAll(HttpServletRequest request) throws Exception {
+		//获得项目id
+		String projectId = request.getParameter("projectId");
+
+		Ret ret = retService.selectRetByProjectId(projectId);
+		
+		if(ret==null){
+			retService.insertRetByProId(projectId);
+			ret = retService.selectRetByProjectId(projectId);
+		}
+
+		//获得多个责任人信息 string
+		List<String> assigsJsonList = tasksService.getAssigsByProjectId(projectId);
+
+		List<Tasks> selectAllTasks = tasksService.selectTasksByProjectId(projectId);
+
+	
+		Tasks task ;
+		/*		Ret ret = retService.selectRet();
 
 		//获得多个责任人信息 string
 		List<String> assigsJsonList = tasksService.getAssigsJsonNew();
 
-
 		List<Tasks> selectAllTasks = tasksService.selectAllTasks();
+		 */
 		//将责任人信息 List<String> ——>List<Assignment> 对象 
-		for (int i = 0; i < selectAllTasks.size(); i++) {
+		if(!selectAllTasks.isEmpty()){
+			for (int i = 0; i < selectAllTasks.size(); i++) {
+				List<Assignment> assignments = new ArrayList<Assignment>();
+				if(!assignments.isEmpty()){
+					String json = assigsJsonList.get(i);
+					assignments = JSON.parseArray(json, Assignment.class);
+				}
+
+				selectAllTasks.get(i).setAssigs(assignments);
+
+			}
+		}else{
+			//新建gantt 初始化
 			List<Assignment> assignments = new ArrayList<Assignment>();
-			String json = assigsJsonList.get(i);
-			assignments = JSON.parseArray(json, Assignment.class);
-			selectAllTasks.get(i).setAssigs(assignments);
-
+			if(!assignments.isEmpty()){
+				String json = assigsJsonList.get(0);
+				assignments = JSON.parseArray(json, Assignment.class);
+			}
+			task = new Tasks();
+			task.setName("name");
+			task.setCanWrite(true);
+			task.setStatus("STATUS_UNDEFINED");
+			task.setAssigs(assignments);
+			task.setStart(new Timestamp(System.currentTimeMillis()));
+			task.setEnd(new Timestamp(System.currentTimeMillis()));
+			selectAllTasks.add(task);
+			
 		}
-
 		ret.setTasks(selectAllTasks);
 		ret.setResources(resourcesService.selectAllResources());
 		ret.setRoles(rolesService.selectAllRoles());
@@ -92,12 +129,15 @@ public class RetController {
 
 	@RequestMapping("/SaveRet")
 	public void SaveResources(HttpServletRequest request)  {
+
+		String projectId = request.getParameter("projectId");
+
 		boolean isDel = true;
 		// 拼接格式 让 fastjson 解析
 		String tasksArrStr = "[" + request.getParameter("tasks") + "]";
 		int tasksCount = 0;
 		try {
-			tasksCount = tasksService.getTasksCount();
+			tasksCount = tasksService.getTasksCountByProId(projectId);
 		} catch (Exception e1) {
 			// TODO 自动生成的 catch 块
 			e1.printStackTrace();
@@ -110,15 +150,15 @@ public class RetController {
 
 		//333333333333333333333333333333333333333333333333333333333333333	
 		//删除全部数据
-/*		try {
+		/*		try {
 			//tasksService.delTasksByProjectName("测试1");
 			tasksService.delTasks();
 		} catch (Exception e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-*/
-		
+		 */
+
 		int size = retList.get(0).getTasks().size();
 
 		List<TasksVo> tasksVoList = new ArrayList<TasksVo>();
@@ -127,13 +167,13 @@ public class RetController {
 			Tasks task = retList.get(0).getTasks().get(n);
 			List<Assignment> assigs = task.getAssigs();
 			String assigsJson = JSON.toJSONString(assigs);
-			
+
 			task.setId(new Integer(n+1).toString());// 中间 删除 添加  保证id保持连续
-			
+
 			TasksVo tasksVo = new TasksVo();
 			tasksVo.setAssigsJson(assigsJson);
 			tasksVo.setTasks(task);
-			//tasksVo.setProjectName("测试1");
+			tasksVo.setProjectId(projectId);
 			tasksVoList.add(tasksVo);
 			/*			单条插入
 			try {
@@ -152,12 +192,22 @@ public class RetController {
 				isDel=false;
 				e.printStackTrace();
 			}
+		}else{
+			try {
+				retService.delRetByProId(projectId);
+			} catch (Exception e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
 		}
-		
+
 		//删除插入之前的数据
 		if(isDel){
 			try {
-				tasksService.delTasksCount(tasksCount);
+				TasksVo tasksVo = new TasksVo();
+				tasksVo.setProjectId(projectId);
+				tasksVo.setTasksCount(tasksCount);
+				tasksService.delTasksCount(tasksVo);
 			} catch (Exception e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();

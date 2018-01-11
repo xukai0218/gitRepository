@@ -1,4 +1,4 @@
-package cn.itcast.ssm.controller;
+/*package cn.itcast.ssm.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
-import cn.gantt.model.Ret;
 import cn.itcast.ssm.po.Assignment;
 import cn.itcast.ssm.po.Resources;
+import cn.itcast.ssm.po.Ret;
 import cn.itcast.ssm.po.Roles;
 import cn.itcast.ssm.po.Tasks;
 import cn.itcast.ssm.po.TasksVo;
@@ -23,13 +23,13 @@ import cn.itcast.ssm.service.ResourcesService;
 import cn.itcast.ssm.service.RolesService;
 import cn.itcast.ssm.service.TasksService;
 
-/**
+*//**
  * @ClassName: TasksController
  * @Description:
  * @author kai.xu
  * @date 2017年12月29日
  *
- */
+ *//*
 @Controller
 public class TasksController {
 	@Autowired
@@ -94,7 +94,7 @@ public class TasksController {
 		
 		
 		//删除
-	/*	for (int n = 0; n < size; n++) {
+		for (int n = 0; n < size; n++) {
 			Tasks task = list.get(0).getTasks().get(n);// 获得每行数据
 			int taskId = task.getId();
 			taskIdList.add(taskId);
@@ -109,13 +109,13 @@ public class TasksController {
 		}
 		for(int i =0 ;i<delIdList.size();i++){
 			System.out.println("del 的 ID:" +delIdList.get(i));
-		}*/
+		}
 		
 		
 		
 		
 		// 遍历每条数据 存进数据库
-		/*for (int n = 0; n < size; n++) {
+		for (int n = 0; n < size; n++) {
 			Tasks task = list.get(0).getTasks().get(n);// 获得每行数据
 			String taskId = task.getId();
 			taskIdList.add(taskId);
@@ -143,10 +143,11 @@ public class TasksController {
 			}
 		}
 		
-		*/
+		
 	
 	}
 	
 	
 
 }
+*/

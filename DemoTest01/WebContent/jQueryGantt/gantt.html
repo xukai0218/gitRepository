@@ -40,7 +40,6 @@
 </head>
 <body style="background-color: #fff;">
 
-${name}
 <div style="display:none" id="ndo" style="position:absolute;right:5px;top:5px;width:378px;padding:5px;background-color: #FFF5E6; border:1px solid #F9A22F; font-size:12px" class="noprint">
   This Gantt editor is free thanks to <a href="http://twproject.com" target="_blank">Twproject</a> where it can be used on a complete and flexible project management solution.<br> Get your projects done! Give <a href="http://twproject.com" target="_blank">Twproject a try now</a>.
 </div>
@@ -244,28 +243,33 @@ function getFile() {
    neww=window.open(uriContent,"dl");*/
 }
 
+function GetRequest() { 
+		var url = location.search;
+  //	alert(url);//?projectId=1
+  var parameter = new Object(); 
+  if (url.indexOf("?") != -1) { 
+	  var str = url.substr(1); 
+	  strs = str.split("&"); 
+	  for(var i = 0; i < strs.length; i ++) { 
+		  parameter[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+  } 
+} 
+		return parameter; 
+}
+
 //加载本地数据
 function loadFromLocalStorage() {
   var ret;
   var tasks;
-  var resources
-  var all;
-/*   $.ajax({
-	  url:"/DemoTest01/selTasksAll.do",
-	  type:"post",
-	  data : '',
-	  dataType : "json",
-	  async:false,
-	  success :function (data){
-		  console.log(data);
-		  tasks =data;
-	  },
-	  error : function(data) {
-			alert("有误的-286");
-		},
-  });  */
+
+  var parameter = GetRequest();
+	console.log(parameter);
+/*	var projectId = JSON.stringify(projectId);
+	alert(projectId);*/
+	
+		  
   $.ajax({
-	  url:"/DemoTest01/selRetAll.do",
+	  url:"/DemoTest01/selRetAll.do?projectId="+parameter["projectId"],
 	  type:"post",
 	  data : '',
 	  dataType : "json",
@@ -348,23 +352,10 @@ function saveServer(){
 	var tasks = JSON.stringify(ge.saveProject());
     //var tasks = ge.saveProject();
     console.log(tasks);
-    // 保存成员
-    /* $.ajax({
- 	  url:"/DemoTest01/SaveTasks.do",
- 	  type:"post",
- 	  data : {"tasks":tasks},
- 	  dataType : "json",
- 	  async:false,
- 	  success :function (data){
- 		  console.log(data);
- 		  tasks =data;
- 	  },
- 	  error : function(data) {
- 			//alert("有误的");
- 		},
-   }); */
+    
+   var parameter = GetRequest();
     $.ajax({
-   	  url:"/DemoTest01/SaveRet.do",
+   	  url:"/DemoTest01/SaveRet.do?projectId="+parameter["projectId"],
    	  type:"post",
    	  data : {"tasks":tasks},
    	  dataType : "json",
@@ -769,7 +760,7 @@ function editResources(){
 	  GanttMaster.messages = {
 	  "CANNOT_WRITE": "不能编辑",
 	  "CHANGE_OUT_OF_SCOPE": "没有超出编辑范围更新父级的权限",
-	  "START_IS_MILESTONE": "超出时间",
+	  "START_IS_MILESTONE": "超出起止时间",
 	  "END_IS_MILESTONE": "超出终止时间",
 	  "TASK_HAS_CONSTRAINTS": "任务包含约束",
 	  "GANTT_ERROR_DEPENDS_ON_OPEN_TASK": "错误：特定于开放的任务",

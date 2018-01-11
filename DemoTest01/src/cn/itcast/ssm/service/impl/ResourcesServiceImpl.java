@@ -35,6 +35,24 @@ public class ResourcesServiceImpl implements ResourcesService{
 	}
 
 	@Override
+	public int selResourcesCount() throws Exception {
+		// TODO 自动生成的方法存根
+		return resourceMapper.selResourcesCount();
+	}
+
+	@Override
+	public void delResourcesCount(int id) throws Exception {
+		// TODO 自动生成的方法存根
+		resourceMapper.delResourcesCount(id);
+	}
+
+	@Override
+	public void insertResourcesBatch(List resourcesList) throws Exception {
+		// TODO 自动生成的方法存根
+		resourceMapper.insertResourcesBatch(resourcesList);
+	}
+	
+	/*@Override
 	public void addResources(Resources resources) throws Exception {
 		// TODO 自动生成的方法存根
 		resourceMapper.addResources(resources);
@@ -57,28 +75,6 @@ public class ResourcesServiceImpl implements ResourcesService{
 	public void updateResources(Resources resources) throws Exception {
 		// TODO 自动生成的方法存根
 		 resourceMapper.updateResources(resources);
-	}
-
-	@Override
-	public int selResourcesCount() throws Exception {
-		// TODO 自动生成的方法存根
-		return resourceMapper.selResourcesCount();
-	}
-
-	@Override
-	public void delResourcesCount(int id) throws Exception {
-		// TODO 自动生成的方法存根
-		resourceMapper.delResourcesCount(id);
-	}
-
-	@Override
-	public void insertResources(List resourcesList) throws Exception {
-		// TODO 自动生成的方法存根
-		resourceMapper.insertResources(resourcesList);
-	}
-
-
-
-
+	}*/
 
 }

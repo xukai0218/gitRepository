@@ -3,9 +3,7 @@ package cn.itcast.ssm.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,14 +16,6 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import cn.gantt.model.Assignment;
-import cn.gantt.model.Ret;
-import cn.gantt.model.TasksTest;
-import cn.itcast.ssm.po.Resources;
-import cn.itcast.ssm.po.Roles;
-import cn.itcast.ssm.po.Tasks;
 import cn.itcast.ssm.service.ResourcesService;
 import cn.itcast.ssm.service.RolesService;
 import cn.itcast.ssm.service.TasksService;
@@ -113,6 +103,14 @@ public class FunctionController {
 		return "/index";
 
 	}
+	
+	@RequestMapping("/baiduEditor")
+	public String toMetronibaiduEditor() {
+
+		return "/FunctionList/baiduEditor/baiduEditor";
+
+	}
+	
 
 	/*@RequestMapping("/jQueryGanttTestAll")
 	@ResponseBody
