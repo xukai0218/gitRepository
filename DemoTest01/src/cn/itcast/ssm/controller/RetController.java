@@ -79,9 +79,10 @@ public class RetController {
 			for (int i = 0; i < selectAllTasks.size(); i++) {
 				List<Assignment> assignments = new ArrayList<Assignment>();
 				if(!assignments.isEmpty()){
-					String json = assigsJsonList.get(i);
-					assignments = JSON.parseArray(json, Assignment.class);
+					
 				}
+				String json = assigsJsonList.get(i);
+				assignments = JSON.parseArray(json, Assignment.class);
 
 				selectAllTasks.get(i).setAssigs(assignments);
 
@@ -103,10 +104,13 @@ public class RetController {
 			selectAllTasks.add(task);
 			
 		}
+		
 		ret.setTasks(selectAllTasks);
+		//获得项目成员
 		ret.setResources(resourcesService.selectAllResources());
+		//获得项目角色
 		ret.setRoles(rolesService.selectAllRoles());
-
+	
 		return ret;
 		/*//获得多个责任人信息 string
 		List<String> assigsJsonList = tasksService.getAssigsJson("测试1");

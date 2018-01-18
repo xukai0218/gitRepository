@@ -1,4 +1,4 @@
-package cn.test;
+/*package cn.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +30,13 @@ public class jsonAssigs {
 		
 		
 		
-	/*	String str ="[{\"id\":\"1\",\"resourceId\":\"1\",\"roleId\":\"2\",\"effort\":0},{\"id\":\"2\",\"resourceId\":\"2\",\"roleId\":\"2\",\"effort\":0}]";
+		String str ="[{\"id\":\"1\",\"resourceId\":\"1\",\"roleId\":\"2\",\"effort\":0},{\"id\":\"2\",\"resourceId\":\"2\",\"roleId\":\"2\",\"effort\":0}]";
 		
 		 List<Assignment> assignment = JSON.parseArray(str,Assignment.class); 
 		 for(Assignment a:assignment){
 			 System.out.println(a.getId());
 			 
-		 }*/
+		 }
 	}
 }
+*/
