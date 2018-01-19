@@ -18,7 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import cn.itcast.ssm.service.ResourcesService;
 import cn.itcast.ssm.service.RolesService;
-import cn.itcast.ssm.service.TasksService;
+import cn.itcast.ssm.service.TopicTaskSerivec;
 
 
 /**
@@ -38,7 +38,7 @@ public class FunctionController {
 	private RolesService rolesService;
 	
 	@Autowired
-	private TasksService tasksService;
+	private TopicTaskSerivec tasksService;
 	
 	@RequestMapping("/yellow")
 	public String toYellowPage() {

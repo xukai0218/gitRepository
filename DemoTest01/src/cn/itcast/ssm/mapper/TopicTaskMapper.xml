@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.ssm.mapper.TopicTaskMapper" >
+
+ 	<select id="getAssigsByTopicId"  resultType="String" >
+  		select assigs from company_topic_task where topic_id = #{topic_id}
+  	</select>
+  
+    <select id="selectTasksByTopicId" parameterType="String"  resultMap="selectAllTasksMap"  >
+			SELECT * FROM company_topic_task where topic_id =#{topic_id} 
+  	</select>
+  
+    <select id="getTopicTaskCountByTopicId" parameterType="String" resultType="int" >
+  		select COUNT(*) from company_topic_task where topic_id=#{topic_id}
+  	</select>
+
+		<!--批量插入  -->
+ 	<insert id="insertTopicTasksBatch" parameterType="java.util.List">
+  		insert into  company_topic_task (
+  			order_id,
+  			topic_id,
+			task_name,
+			progress,
+		<!--progressByWorklog,
+		 	relevance,
+			type,
+			typeId,
+			code, -->
+			description,
+			status,
+			level,
+			canWrite,
+			start,
+			duration,
+			end,
+			endIsMilestone,
+			startIsMilestone,
+			collapsed,
+			hasChild,
+			depends,
+			assigs)
+					 values 
+		<if test="list!=null">
+			<foreach collection="list" item="item" index="index" separator="," >  
+					 
+				( 	#{item.topicTask.id},
+					#{item.topicId},
+					#{item.topicTask.name},
+					#{item.topicTask.progress},
+			<!--	#{item.topicTask.progressByWorklog},
+			        #{item.topicTask.relevance},
+					#{item.topicTask.type},
+					#{item.topicTask.typeId},
+					#{item.topicTask.code}, -->
+					#{item.topicTask.description},
+					#{item.topicTask.status},
+					#{item.topicTask.level},
+					#{item.topicTask.canWrite},
+					#{item.topicTask.start},
+					#{item.topicTask.duration},
+					#{item.topicTask.end},
+					#{item.topicTask.endIsMilestone},
+					#{item.topicTask.startIsMilestone},
+					#{item.topicTask.collapsed},
+					#{item.topicTask.hasChild},
+					#{item.topicTask.depends},
+					#{item.assigsJson} )
+			</foreach>	
+		</if>
+  </insert>
+
+	<delete id="delTopicTasksCount" parameterType="cn.itcast.ssm.po.TopicTaskVo" >
+  				delete from company_topic_task where topic_id=#{topicId} limit #{tasksCount}
+ 	</delete>
+ 	
+ 	
+ 	<resultMap type="cn.itcast.ssm.po.TopicTask" id="selectAllTasksMap">
+		<id column="order_id" property="id"/>
+		<result column="task_name" property="name"/>
+		<result column="progress" property="progress"/>
+		<result column="progressByWorklog" property="progressByWorklog"/>
+		<result column="relevance" property="relevance"/>
+		<result column="type" property="type"/>
+		<result column="typeId" property="typeId"/>
+		<result column="description" property="description"/>
+		<result column="code" property="code"/>
+		<result column="level" property="level"/>
+		<result column="status" property="status"/>
+		<result column="depends" property="depends"/>
+		<result column="canWrite" property="canWrite"/>
+		<result column="start" property="start"/>
+		<result column="duration" property="duration"/>
+		<result column="end" property="end"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="endIsMilestone" property="endIsMilestone"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="collapsed" property="collapsed"/>
+		<result column="hasChild" property="hasChild"/>
+</resultMap>  
+ 	
+<!-- 
+  	<select id="selectAllTasks" resultType="cn.itcast.ssm.po.Tasks"  >
+		select * from tasks 
+  </select> 
+  
+  	<select id="selectAllTasksResultMap" resultMap="selectAllTasksResultMap"  >
+			SELECT
+				t.*, 
+				a.id assid,
+				a.resourceId,
+				a.roleId,
+				a.effort
+			FROM
+				tasks t,
+				assignment a
+			WHERE
+				t.assigs = a.id
+  </select>
+  
+  <select id="selectAllTasks" resultMap="selectAllTasksMap"  >
+			SELECT * FROM tasks 
+				
+  </select>
+  
+  
+  
+  <select id="getAssigsId" parameterType="cn.itcast.ssm.po.Tasks" resultType="String">
+  		SELECT
+			t.assigs
+		FROM
+			tasks t
+		WHERE
+			t.id = #{id}
+  </select>
+  
+ 
+  
+   <select id="getAssigsJsonNew"  resultType="String" >
+  	select assigs from tasks 
+  
+  </select>
+  
+   <select id="getAssigsJson" parameterType="String" resultType="String" >
+  	select assigs from tasks WHERE tasks.projectName = #{name}
+  
+  </select>
+  
+   <select id="getTasksCount"  resultType="int" >
+  		select COUNT(*) from tasks
+  </select>
+  
+  
+  
+  
+  <select id="getTasksById" parameterType="String" resultType="String" >
+  	SELECT
+			tasks_Id
+		FROM
+			tasks 
+		WHERE
+			tasks_Id = #{id}
+  </select>
+  
+   <select id="getTasksId" resultType="String" >
+  	SELECT
+			tasks_Id
+		FROM
+			tasks 
+  </select>
+  
+ <update id="updateTasks" parameterType="cn.itcast.ssm.po.TasksVo">
+ 	UPDATE tasks
+		SET 
+			name = #{tasks.name},
+			progress = #{tasks.progress},
+			progressByWorklog = #{tasks.progressByWorklog},
+			relevance =#{tasks.relevance},
+			type =#{tasks.type},
+			typeId =#{tasks.typeId},
+			description =#{tasks.description},
+			code =#{tasks.code},
+			status =#{tasks.status},
+			level=#{tasks.level},
+			canWrite =#{tasks.canWrite},
+			start =#{tasks.start},
+			duration =#{tasks.duration},
+			end =#{tasks.end},
+			endIsMilestone =#{tasks.endIsMilestone},
+			startIsMilestone =#{tasks.startIsMilestone},
+			collapsed =#{tasks.collapsed},
+			hasChild =#{tasks.hasChild},
+			assigs=#{assigsIds}
+		WHERE
+			id = #{tasks.id}
+ </update>
+  
+  <insert id="insertTasks" parameterType="cn.itcast.ssm.po.Tasks">
+  		insert into  tasks (
+  			id,
+			name,
+			progress,
+			progressByWorklog,
+			relevance,
+			type,
+			typeId,
+			description,
+			code,
+			status,
+			level,
+			canWrite,
+			start,
+			duration,
+			end,
+			endIsMilestone,
+			startIsMilestone,
+			collapsed,
+			hasChild,
+			assigs)
+					 values (
+					#{tasks.id},
+					#{tasks.name},
+					#{tasks.progress},
+					#{tasks.progressByWorklog},
+					#{tasks.relevance},
+					#{tasks.type},
+					#{tasks.typeId},
+					#{tasks.description},
+					#{tasks.code},
+					#{tasks.status},
+					#{tasks.level},
+					#{tasks.canWrite},
+					#{tasks.start},
+					#{tasks.duration},
+					#{tasks.end},
+					#{tasks.endIsMilestone},
+					#{tasks.startIsMilestone},
+					#{tasks.collapsed},
+					#{tasks.hasChild},
+					#{assigsIds}
+					)
+  </insert>
+  
+   <insert id="insertTasksNew" parameterType="cn.itcast.ssm.po.TasksVo">
+  		insert into  tasks (
+  			tasks_Id,
+  			projectName,
+			name,
+			progress,
+			progressByWorklog,
+			relevance,
+			type,
+			typeId,
+			description,
+			code,
+			status,
+			level,
+			canWrite,
+			start,
+			duration,
+			end,
+			endIsMilestone,
+			startIsMilestone,
+			collapsed,
+			hasChild,
+			assigs)
+					 values (
+					#{tasks.id},
+					#{projectName},
+					#{tasks.name},
+					#{tasks.progress},
+					#{tasks.progressByWorklog},
+					#{tasks.relevance},
+					#{tasks.type},
+					#{tasks.typeId},
+					#{tasks.description},
+					#{tasks.code},
+					#{tasks.status},
+					#{tasks.level},
+					#{tasks.canWrite},
+					#{tasks.start},
+					#{tasks.duration},
+					#{tasks.end},
+					#{tasks.endIsMilestone},
+					#{tasks.startIsMilestone},
+					#{tasks.collapsed},
+					#{tasks.hasChild},
+					#{assigsJson}
+					)
+  </insert>
+  
+ 
+  
+  <delete id="delTasksById" parameterType="String" >
+  				delete from Tasks where tasks_Id = #{id}
+  
+  </delete>
+
+  <delete id="delTasksByProjectName" parameterType="String" >
+  				delete from Tasks where projectName = #{projectName}
+  </delete>
+  
+   <delete id="delTasks" >
+  				delete from Tasks
+  </delete>
+  
+    
+
+   	<select id="selectTasksResultMap" parameterType="cn.itcast.ssm.po.TasksVo" resultMap="selectAllTasksResultMap"  >
+   	
+			SELECT
+				t.*, 
+				a.id assid,
+				a.resourceId,
+				a.roleId,
+				a.effort
+			FROM
+				tasks t,
+				assignment a
+			where	
+					t.id = 1
+				AND a.id IN (   1, 2)
+			 <where>
+					<include refid="tasks"></include>
+			</where> 
+					
+  </select>
+  
+  
+   <update id="updateTasksNew" parameterType="cn.itcast.ssm.po.TasksVo">
+ 	UPDATE tasks
+		SET 
+			name = #{tasks.name},
+			progress = #{tasks.progress},
+			progressByWorklog = #{tasks.progressByWorklog},
+			relevance =#{tasks.relevance},
+			type =#{tasks.type},
+			typeId =#{tasks.typeId},
+			description =#{tasks.description},
+			code =#{tasks.code},
+			status =#{tasks.status},
+			level=#{tasks.level},
+			canWrite =#{tasks.canWrite},
+			start =#{tasks.start},
+			duration =#{tasks.duration},
+			end =#{tasks.end},
+			endIsMilestone =#{tasks.endIsMilestone},
+			startIsMilestone =#{tasks.startIsMilestone},
+			collapsed =#{tasks.collapsed},
+			hasChild =#{tasks.hasChild},
+			assigs=#{assigsJson}
+		WHERE
+			tasks_Id = #{tasks.id} 
+ </update>
+  
+  <sql id="tasks">
+		<if test="tasks!=null">
+			<if test="tasks.id!=null and tasks.id!=''">
+				and t.id = #{tasks.id}
+			</if>
+		<if test="assigsIdList!=null">
+			实现  “ and id IN(1,10,16)”拼接
+			<foreach collection="assigsIdList" item="assigs_id" open="and a.id IN(" close=")" separator=",">
+				 #{assigs_id}
+			</foreach> 
+		</if>
+		</if>
+	</sql>
+
+
+  
+  
+  
+<resultMap type="cn.itcast.ssm.po.Tasks" id="selectAllTasksResultMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="progress" property="progress"/>
+		<result column="progressByWorklog" property="progressByWorklog"/>
+		<result column="relevance" property="relevance"/>
+		<result column="type" property="type"/>
+		<result column="typeId" property="typeId"/>
+		<result column="description" property="description"/>
+		<result column="code" property="code"/>
+		<result column="level" property="level"/>
+		<result column="status" property="status"/>
+		<result column="depends" property="depends"/>
+		<result column="canWrite" property="canWrite"/>
+		<result column="start" property="start"/>
+		<result column="duration" property="duration"/>
+		<result column="end" property="end"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="endIsMilestone" property="endIsMilestone"/>
+		<result column="startIsMilestone" property="startIsMilestone"/>
+		<result column="collapsed" property="collapsed"/>
+		<result column="hasChild" property="hasChild"/>
+		
+		<collection property="assigs" ofType="cn.itcast.ssm.po.Assignment">
+			<id column="assid" property="id"/>
+			<result column="resourceId" property="resourceId"/>
+			<result column="roleId" property="roleId"/>
+			<result column="effort" property="effort"/>
+		</collection>
+</resultMap>  
+
+ -->
+</mapper>

@@ -11,6 +11,6 @@ import java.util.List;
 * @date 2018年1月1日
 *
 */
-public class TasksCustom extends Tasks {
+public class TasksCustom extends TopicTask {
 	
 }

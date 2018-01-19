@@ -16,7 +16,7 @@ import com.alibaba.fastjson.JSON;
 
 import cn.itcast.ssm.po.Assignment;
 import cn.itcast.ssm.po.Resources;
-import cn.itcast.ssm.po.TasksVo;
+import cn.itcast.ssm.po.TopicTaskVo;
 import cn.itcast.ssm.service.ResourcesService;
 import cn.test.Person;
 import cn.util.JsonUtil;

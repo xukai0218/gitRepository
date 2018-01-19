@@ -33,10 +33,10 @@
     </head>
 
     <body>
-    <a href="jQueryGantt/gantt.html?projectId=1"><p>JQueryGantt1.html</p></a>
-    <a href="jQueryGantt/gantt.html?projectId=2"><p>JQueryGantt2.html</p></a>
-    <a href="jQueryGantt/gantt.html?projectId=3"><p>JQueryGantt3.html</p></a>
-    <a href="jQueryGantt/gantt.html?projectId=4"><p>JQueryGantt4.html</p></a>
+    <a target="_blank" href="jQueryGantt/gantt.html?topicId=1"><p>JQueryGantt1.html</p></a>
+    <a target="_blank" href="jQueryGantt/gantt.html?topicId=2"><p>JQueryGantt2.html</p></a>
+    <a target="_blank" href="jQueryGantt/gantt.html?topicId=3"><p>JQueryGantt3.html</p></a>
+    <a target="_blank" href="jQueryGantt/gantt.html?topicId=4"><p>JQueryGantt4.html</p></a>
     <a href="FunctionList/baiduEditor.do"><p>baiduEditor.jsp</p></a>
     <form method="post">
     		
