@@ -277,6 +277,9 @@ function loadFromLocalStorage() {
 	  success :function (data){
 		  console.log(data);
 		  tasks =data;
+		  var  a =JSON.stringify(data);
+		  var contact = JSON.parse(a);
+		  console.log(contact.canDelete);
 	  },
 	  error : function(data) {
 			//alert("有误的-299");
@@ -460,6 +463,61 @@ function editResources(){
 
   var ndo = createModalPopup(400, 500).append(resourceEditor);
 }
+// onclick="$('#workSpace').trigger('indentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="设置子任务"><span class="teamworkIcon">:</span></button>
+
+  function test(){
+
+	  /*     var offset=new Date().getTime()-ret.tasks[0].start;
+	    for (var i=0;i<ret.tasks.length;i++) {
+	      ret.tasks[i].start = ret.tasks[i].start + offset;
+	    } */
+
+      
+    /*   alert(
+         // ge.tasks
+
+      ); */
+      var obj= ge.tasks[3];
+      //console.log(obj.level);
+      /*     console.log(ge.tasks[3]);
+     console.log(typeof (ge.tasks[3]));
+     var jsonStr=JSON.stringify(ge.tasks[3]);
+     var result = JSON.parse(ge.tasks[3]);
+     console.log(result.level) */
+     
+     var levelList=[];
+      for (var j=0;j<ge.tasks.length;j++){
+         var task=ge.tasks[j];
+         var level =task.level;
+        //console.log(level);
+        levelList.push(level);
+       // console.log(levelList[j]);
+        
+        console.log(Math.max.apply( "最大值为"+Math, levelList ));
+       
+
+       }  
+      var max = Math.max.apply(null, levelList);
+     
+      
+      if(max<=2){
+    	  $('#workSpace').trigger('indentCurrentTask.gantt'); 
+      }
+     
+  }
+  
+  
+//最大值
+  Array.prototype.max = function() { 
+  var max = this[0];
+  var len = this.length; 
+  for (var i = 1; i < len; i++){ 
+ 	 if (this[i] > max) { 
+ 	 	max = this[i]; 
+  	} 
+  } 
+  		return max;
+  }
 </script>
 
 
@@ -467,7 +525,9 @@ function editResources(){
 
 
 <div id="gantEditorTemplates" style="display:none;">
-<div class="__template__" type="GANTBUTTONS"><!--
+  <button onclick="$('#workSpace').trigger('deleteFocused.gantt');return false;" class="button textual icon delete requireCanWrite" title="删除"><span class="teamworkIcon">&cent;</span></button>
+
+  <div class="__template__" type="GANTBUTTONS"><!--
   <div class="ganttButtonBar noprint">
     <div class="buttons">
       <a href="https://gantt.twproject.com/"><img src="res/twGanttLogo.png" alt="Twproject" align="absmiddle" style="max-width: 136px; padding-right: 15px"></a>
@@ -479,7 +539,7 @@ function editResources(){
       <button onclick="$('#workSpace').trigger('addBelowCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanAdd" title="在下面插入"><span class="teamworkIcon">X</span></button>
       <span class="ganttButtonSeparator requireCanWrite requireCanInOutdent"></span>
       <button onclick="$('#workSpace').trigger('outdentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="撤销子任务"><span class="teamworkIcon">.</span></button>
-      <button onclick="$('#workSpace').trigger('indentCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanInOutdent" title="设置子任务"><span class="teamworkIcon">:</span></button>
+      <button onclick="test()" class="button textual icon requireCanWrite requireCanInOutdent" title="设置子任务"><span class="teamworkIcon">:</span></button>
       <span class="ganttButtonSeparator requireCanWrite requireCanMoveUpDown"></span>
       <button onclick="$('#workSpace').trigger('moveUpCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="上移"><span class="teamworkIcon">k</span></button>
       <button onclick="$('#workSpace').trigger('moveDownCurrentTask.gantt');return false;" class="button textual icon requireCanWrite requireCanMoveUpDown" title="下移"><span class="teamworkIcon">j</span></button>

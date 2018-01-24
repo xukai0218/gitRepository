@@ -26,7 +26,7 @@ import cn.itcast.ssm.po.TopicTaskVo;
 import cn.itcast.ssm.service.ResourcesService;
 import cn.itcast.ssm.service.RetService;
 import cn.itcast.ssm.service.RolesService;
-import cn.itcast.ssm.service.TopicTaskSerivec;
+import cn.itcast.ssm.service.TopicTaskService;
 
 /**
  * @ClassName: TasksController
@@ -42,7 +42,7 @@ public class TaskDecomposeController {
 	@Autowired
 	private RolesService rolesService;
 	@Autowired
-	private TopicTaskSerivec topicTasksService;
+	private TopicTaskService topicTasksService;
 	@Autowired
 	private RetService retService;
 

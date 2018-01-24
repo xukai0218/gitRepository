@@ -2,12 +2,15 @@ package cn.itcast.ssm.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import cn.itcast.ssm.po.Roles;
 import cn.itcast.ssm.po.TopicTask;
-import cn.itcast.ssm.po.TasksCustom;
 import cn.itcast.ssm.po.TopicTaskVo;
-
-public interface TopicTaskSerivec {
+@Service
+@Component
+public interface TopicTaskService {
 	//通过项目Id找到得到 assign字段的 list集合
 	public List<String> getAssigsByTopicId(String projectId) throws Exception;
 	//通过项目Id找到得到 相应任务集合

@@ -1,4 +1,4 @@
-package cn.itcast.ssm.controller;
+/*package cn.itcast.ssm.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,16 +18,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import cn.itcast.ssm.service.ResourcesService;
 import cn.itcast.ssm.service.RolesService;
-import cn.itcast.ssm.service.TopicTaskSerivec;
+import cn.itcast.ssm.service.TopicTaskService;
 
 
-/**
+*//**
 * @ClassName: FunctionController
 * @Description:
 * @author kai.xu
 * @date 2017年12月27日
 *
-*/
+*//*
 @Controller
 @RequestMapping(value = "/FunctionList")
 public class FunctionController {
@@ -38,7 +38,7 @@ public class FunctionController {
 	private RolesService rolesService;
 	
 	@Autowired
-	private TopicTaskSerivec tasksService;
+	private TopicTaskService tasksService;
 	
 	@RequestMapping("/yellow")
 	public String toYellowPage() {
@@ -112,7 +112,7 @@ public class FunctionController {
 	}
 	
 
-	/*@RequestMapping("/jQueryGanttTestAll")
+	@RequestMapping("/jQueryGanttTestAll")
 	@ResponseBody
 	public Ret tojQueryGanttTestAll() {
 		String[] str = {}; //{id: "tmp_1514512760705_1", resourceId: "1", roleId: "1", effort: 0}
@@ -154,7 +154,7 @@ public class FunctionController {
 		
 		return ret;
 
-	}*/
+	}
 	@RequestMapping("/jQueryGanttTestSaveResources") 
 	public void tojQueryGanttTestSaveResources(HttpServletRequest request) throws JsonParseException, JsonMappingException, IOException {
 		String resources = request.getParameter("resources");
@@ -168,16 +168,17 @@ public class FunctionController {
 
 		//JSONArray json = JSONArray.fromObject("");//userStr是json字符串
 		 // List<User> users= (List<User>)JSONArray.toCollection(json, User.class);
-/*		List<Resources> resources = new ArrayList<>();
+		List<Resources> resources = new ArrayList<>();
 		Resources resources1 = new Resources("1", "Resource 1");
 		Resources resources2 = new Resources("2", "Resource 2");
 		Resources resources3 = new Resources("3", "Resource 3");
 		resources.add(resources1);
 		resources.add(resources2);
-		resources.add(resources3);*/
+		resources.add(resources3);
 		
 	}
 	
 	
 
 }
+*/

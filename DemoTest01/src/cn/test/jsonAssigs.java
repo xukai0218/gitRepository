@@ -1,3 +1,4 @@
+package cn.test;
 /*package cn.test;
 
 import java.util.ArrayList;

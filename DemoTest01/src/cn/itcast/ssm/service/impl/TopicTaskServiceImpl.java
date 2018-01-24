@@ -3,11 +3,13 @@ package cn.itcast.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import cn.itcast.ssm.mapper.TopicTaskMapper;
 import cn.itcast.ssm.po.TopicTask;
 import cn.itcast.ssm.po.TopicTaskVo;
-import cn.itcast.ssm.service.TopicTaskSerivec;
+import cn.itcast.ssm.service.TopicTaskService;
 
 /**
 * @ClassName: TasksServiceImpl
@@ -16,7 +18,7 @@ import cn.itcast.ssm.service.TopicTaskSerivec;
 * @date 2017年12月28日
 *
 */
-public class TopicTaskServiceImpl implements TopicTaskSerivec{
+public class TopicTaskServiceImpl implements TopicTaskService{
 	@Autowired
 	TopicTaskMapper topicTasksMapper;
 

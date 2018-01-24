@@ -78,12 +78,12 @@
 		<id column="order_id" property="id"/>
 		<result column="task_name" property="name"/>
 		<result column="progress" property="progress"/>
-		<result column="progressByWorklog" property="progressByWorklog"/>
+<!-- 	<result column="progressByWorklog" property="progressByWorklog"/>
 		<result column="relevance" property="relevance"/>
 		<result column="type" property="type"/>
 		<result column="typeId" property="typeId"/>
+		<result column="code" property="code"/> -->
 		<result column="description" property="description"/>
-		<result column="code" property="code"/>
 		<result column="level" property="level"/>
 		<result column="status" property="status"/>
 		<result column="depends" property="depends"/>
